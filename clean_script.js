@@ -1,0 +1,808 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>"INDUSTRY AND TECHNOLOGY" LLC | CoalMoscow.com | CoalMoscow.ru</title>
+    <meta name="description" content="Добыча и экспорт угля из России. Поставки на условиях CIF, FOB, порт Тамань. CoalMoscow.com">
+    <meta property="og:title" content="INDUSTRY AND TECHNOLOGY LLC | CoalMoscow.com">
+    <meta property="og:description" content="Extraction and export of coal from Russia. CIF, FOB deliveries, Port of Taman.">
+    <meta property="og:url" content="https://coalmoscow.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://coalmoscow.com">
+    
+    <!-- Favicon (Emoji-based base64) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
+
+    <!-- Подключение базового шрифта Inter и акцентного Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --bg: #111315; /* Глубокий темный графит */
+            --surface: #1A1D20;
+            --surface-hover: #22262a;
+            --accent: #FF5A00; /* Огненно-оранжевый */
+            --accent-hover: #e04f00;
+            --text-main: #ffffff;
+            --text-muted: #94A3B8;
+            --border: rgba(255, 255, 255, 0.1);
+            --border-highlight: rgba(255, 255, 255, 0.2);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { overflow-y: scroll; scroll-behavior: smooth; scroll-padding-top: 80px; } 
+        body { font-family: var(--font-body); background: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; text-align: start; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        
+        h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.2; letter-spacing: -0.01em; }
+        
+        /* Анимации появления */
+        .reveal-scale { opacity: 0; transform: scale(1.05); transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+        
+        .reveal-text { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); opacity: 0; transform: translateY(20px); transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease, transform 0.8s ease; }
+        .reveal-text.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); opacity: 1; transform: translateY(0); }
+        
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+
+        /* Header */
+        header { background: rgba(17, 19, 21, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; padding: 16px 0; }
+        .header-flex { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .logo-area { display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit; }
+        .logo-icon { color: var(--accent); font-size: 1.8rem; }
+        .logo-text h1 { font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+        .logo-text p { font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.05em;}
+        
+        /* Lang Switcher */
+        .lang-switch { display: flex; gap: 4px; align-items: center; justify-content: center; position: relative; background: rgba(255, 255, 255, 0.05); padding: 4px; border-radius: 20px; border: 1px solid var(--border); }
+        .lang-btn { position: relative; z-index: 2; background: transparent; border: none; color: var(--text-muted); font-family: var(--font-heading); font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: color 0.3s; letter-spacing: 0.05em; padding: 6px 12px; border-radius: 16px; }
+        .lang-btn:hover { color: #fff; }
+        .lang-btn.active { color: #000; }
+        .lang-slider { position: absolute; top: 4px; bottom: 4px; left: 0; background: var(--accent); border-radius: 16px; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), width 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1; }
+        .lang-separator { display: none; }
+        
+        /* Nav */
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-family: var(--font-heading); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: var(--transition); }
+        .nav-links a:hover { color: #fff; }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle { display: none; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+        
+        .btn-outline { border: 1px solid var(--accent); padding: 12px 24px; color: var(--accent) !important; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); text-align: center; border-radius: 4px; }
+        .btn-outline::after { display: none; }
+        .btn-outline:hover { background: var(--accent); color: var(--bg) !important; box-shadow: 0 0 15px rgba(255, 90, 0, 0.3); }
+
+        /* Hero Section */
+        .hero { position: relative; padding: 140px 0; display: flex; align-items: center; min-height: 80vh; overflow: hidden; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1587304561081-30154e2dc603?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat; z-index: 0; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(17,19,21,0.95) 0%, rgba(17,19,21,0.7) 100%); z-index: 1; }
+        
+        .hero-content { position: relative; z-index: 2; width: 100%; display: flex; flex-wrap: wrap; gap: 64px; align-items: center; }
+        .hero-text { flex: 1.2; min-width: 320px; border-inline-start: 2px solid var(--accent); padding-inline-start: 32px; }
+        .hero-text h2 { font-size: 4rem; font-weight: 800; margin-bottom: 24px; text-transform: uppercase; line-height: 1.1; }
+        .hero-text p { font-size: 1.1rem; margin-bottom: 48px; max-width: 600px; color: #cbd5e1; }
+        
+        .info-badge { border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 8px; padding: 8px 24px; font-size: 0.8rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; color: var(--accent); }
+        
+        .hero-stats { display: flex; gap: 48px; flex-wrap: wrap; }
+        .stat span { font-family: var(--font-heading); font-size: 3rem; font-weight: 800; color: var(--accent); display: block; margin-bottom: 4px; line-height: 1; }
+        .stat { color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* Бегущая строка партнеров */
+        .marquee-section { background: #000; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; white-space: nowrap; }
+        .marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
+        .marquee-item { display: inline-flex; align-items: center; gap: 12px; margin: 0 40px; color: var(--text-muted); font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5; transition: var(--transition); }
+        .marquee-item:hover { opacity: 1; color: #fff; }
+        .marquee-item i { font-size: 1.5rem; color: var(--accent); }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Sections */
+        section { padding: 120px 0; position: relative; border-bottom: 1px solid var(--border); }
+        .section-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
+        .section-sub { color: var(--text-muted); margin-bottom: 64px; font-size: 1.1rem; max-width: 700px; }
+        
+        /* About Cards */
+        .strict-card { background: var(--surface); padding: 48px; border: 1px solid var(--border); transition: var(--transition); border-radius: 4px; }
+        .strict-card:hover { border-color: var(--border-highlight); background: var(--surface-hover); box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: translateY(-4px); }
+        .about-list { list-style: none; margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .about-list li { display: flex; align-items: flex-start; gap: 16px; font-size: 1rem; color: #e2e8f0; }
+        .about-list i { color: var(--accent); margin-top: 4px; }
+
+        /* Table */
+        .table-container { position: relative; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .spec-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); min-width: 600px; }
+        .spec-table th, .spec-table td { padding: 24px; text-align: start; border-bottom: 1px solid var(--border); }
+        .spec-table th { background: #15181a; font-family: var(--font-heading); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+        .spec-table tbody tr { transition: var(--transition); }
+        .spec-table tbody tr:hover { background-color: var(--surface-hover); border-inline-start: 2px solid var(--accent); }
+        .spec-table td { font-size: 0.95rem; }
+        
+        /* Map Section */
+        .map-wrapper { position: relative; width: 100%; height: 500px; background: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg') center/contain no-repeat; opacity: 0.8; margin-top: 48px; filter: invert(1) opacity(0.3); }
+        .map-pin { position: absolute; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 15px var(--accent); transform: translate(-50%, -50%); cursor: pointer; }
+        .map-pin::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--accent); animation: pulse 2s infinite; }
+        .pin-label { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 12px; background: #000; padding: 4px 12px; font-size: 0.75rem; font-family: var(--font-heading); text-transform: uppercase; border: 1px solid var(--border); white-space: nowrap; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+        .map-pin:hover .pin-label { opacity: 1; }
+        
+        .pin-taman { top: 30%; left: 58%; }
+        .pin-india { top: 48%; left: 68%; }
+        .pin-china { top: 40%; left: 78%; }
+        .pin-vietnam { top: 52%; left: 78%; }
+        .pin-africa { top: 55%; left: 52%; }
+
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(3); opacity: 0; } }
+
+        /* Form Styling */
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .input-group { position: relative; margin-bottom: 32px; }
+        .input-group.full { grid-column: span 2; }
+        
+        .input-group input, .input-group textarea, .input-group select { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border); color: #fff; padding: 16px 0 8px; font-family: var(--font-body); font-size: 1rem; transition: border-color 0.3s; border-radius: 0; }
+        .input-group textarea { resize: vertical; min-height: 100px; }
+        .input-group input:focus, .input-group textarea:focus, .input-group select:focus { outline: none; border-bottom-color: var(--accent); }
+        
+        .input-group label { position: absolute; inset-inline-start: 0; top: 16px; color: var(--text-muted); font-size: 1rem; transition: 0.3s; pointer-events: none; font-family: var(--font-heading); }
+        
+        .input-group input:focus ~ label, .input-group input:not(:placeholder-shown) ~ label,
+        .input-group textarea:focus ~ label, .input-group textarea:not(:placeholder-shown) ~ label,
+        .input-group select:focus ~ label, .input-group select:valid ~ label {
+            top: -10px; font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;
+        }
+
+        .input-group select option { background: var(--surface); color: #fff; }
+        .input-group select { 
+            appearance: none; 
+            cursor: pointer; 
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23FF5A00' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0px center;
+            padding-inline-end: 24px;
+        }
+        [dir="rtl"] .input-group select {
+            background-position: left 0px center;
+        }
+
+        button.submit-btn { background: var(--accent); color: #000; border: none; padding: 18px 48px; font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; justify-content: center; gap: 12px; border-radius: 4px; }
+        button.submit-btn:hover { background: var(--accent-hover); color: #fff; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 90, 0, 0.2); }
+
+        /* Back to Top & WhatsApp */
+        .fab-container { position: fixed; bottom: 32px; inset-inline-end: 32px; display: flex; flex-direction: column; gap: 16px; z-index: 90; }
+        .fab-btn { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #fff; text-decoration: none; transition: var(--transition); box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: none; cursor: pointer; }
+        .btn-whatsapp { background: #25D366; }
+        .btn-whatsapp:hover { transform: scale(1.1); background: #20ba5a; }
+        .btn-top { background: var(--accent); opacity: 0; pointer-events: none; }
+        .btn-top.visible { opacity: 1; pointer-events: auto; }
+        .btn-top:hover { background: var(--accent-hover); transform: translateY(-4px); }
+
+        /* Footer */
+        footer { background: #000; padding: 80px 0 40px; }
+        .footer-flex { display: flex; flex-wrap: wrap; gap: 56px; justify-content: space-between; }
+        .footer-col h3 { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .footer-col p, .footer-col a { color: var(--text-muted); text-decoration: none; display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 0.95rem; }
+        .footer-col i { color: var(--accent); margin-top: 4px; }
+
+        /* =========================================
+           АДАПТИВНОСТЬ (Медиазапросы)
+           ========================================= */
+
+        /* Планшеты (до 1024px) */
+        @media (max-width: 1024px) {
+            .hero-text h2 { font-size: 3rem; }
+            .section-title { font-size: 2.2rem; }
+            .about-list { grid-template-columns: 1fr; }
+            .hero-stats { gap: 24px; }
+            .map-wrapper { height: 400px; }
+        }
+
+        /* Мобильные телефоны и планшеты (вертикально) (до 768px) */
+        @media (max-width: 768px) {
+            header { padding: 12px 0; }
+            .header-flex { position: relative; }
+            .logo-text h1 { font-size: 1rem; }
+            
+            .menu-toggle { display: block; }
+            
+            .nav-links { 
+                position: fixed; top: 72px; inset-inline-start: 0; width: 100%; background: var(--bg); 
+                flex-direction: column; padding: 40px 24px; border-bottom: 1px solid var(--border);
+                transform: translateY(-100%); opacity: 0; pointer-events: none; transition: var(--transition);
+                z-index: 99;
+            }
+            .nav-links.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
+            .btn-outline { width: 100%; margin-top: 8px; }
+
+            .hero { padding: 80px 0 60px; min-height: auto; }
+            .hero-content { gap: 40px; justify-content: center; }
+            
+            .hero-text { 
+                border-inline-start: none; 
+                border-top: 2px solid var(--accent); 
+                padding: 24px 0 0 0; 
+                text-align: center; 
+            }
+            .hero-text h2 { font-size: 2.2rem; margin-bottom: 16px; }
+            .hero-text p { margin: 0 auto 32px; font-size: 1rem; }
+            .info-badge { margin: 0 auto 24px; display: inline-flex; }
+            
+            .hero-stats { justify-content: center; gap: 24px; text-align: center; }
+            .stat span { font-size: 2.2rem; }
+            .stat { font-size: 0.7rem; }
+
+            section { padding: 60px 0; }
+            .section-title, .section-sub { text-align: center; margin-inline: auto; }
+            .section-title { font-size: 1.8rem; }
+            .section-sub { font-size: 1rem; margin-bottom: 40px; }
+            
+            .strict-card { padding: 24px; }
+            .spec-table th, .spec-table td { padding: 16px; }
+            
+            .map-wrapper { height: 250px; margin-top: 32px; }
+            .pin-label { font-size: 0.6rem; padding: 2px 6px; }
+
+            .form-grid { grid-template-columns: 1fr; gap: 24px; }
+            .input-group.full { grid-column: span 1; }
+            button.submit-btn { width: 100%; }
+
+            .footer-flex { flex-direction: column; gap: 40px; text-align: center; }
+            .footer-col { align-items: center; }
+            .footer-col p, .footer-col a { justify-content: center; }
+            
+            .fab-container { bottom: 20px; inset-inline-end: 20px; }
+        }
+
+        /* Небольшие смартфоны (до 480px) */
+        @media (max-width: 480px) {
+            .hero-text h2 { font-size: 1.8rem; }
+            .nav-links a { font-size: 0.75rem; }
+            .stat span { font-size: 1.8rem; }
+            .marquee-item { font-size: 1rem; margin: 0 20px; }
+            .spec-table th, .spec-table td { padding: 12px; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-flex">
+        <a href="#" class="logo-area">
+            <i class="fas fa-gem logo-icon"></i>
+            <div class="logo-text">
+                <h1>INDUSTRY AND TECHNOLOGY</h1>
+                <p data-i18n="header_sub">Добыча и экспорт угля | Офис 3613</p>
+            </div>
+        </a>
+        
+        <div class="lang-switch" dir="ltr">
+            <div class="lang-slider" id="langSlider"></div>
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="zh">ZH</button>
+            <button class="lang-btn" data-lang="hi">HI</button>
+            <button class="lang-btn" data-lang="ar">AR</button>
+        </div>
+        
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#about" data-i18n="nav_about">Компания</a>
+            <a href="#coal" data-i18n="nav_coal">Продукция</a>
+            <a href="#logistics" data-i18n="nav_logistics">Логистика</a>
+            <a href="#contact" class="btn-outline" data-i18n="nav_contact">Связаться</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-text reveal-text">
+                <div class="info-badge"><i class="fas fa-ship"></i> <span data-i18n="hero_badge">FOB / CIF Порт Тамань</span></div>
+                <h2 data-i18n="hero_title">Добыча и экспорт угля из России</h2>
+                <p data-i18n="hero_desc">Прямые контракты, сертифицированное качество, полное таможенное оформление. Надежная логистика для крупнотоннажных судов.</p>
+                <div class="hero-stats">
+                    <div class="stat"><span class="counter-value" data-target="1.2">0</span> <div data-i18n="stat_volume_label">млн т в год</div></div>
+                    <div class="stat"><span class="counter-value" data-target="5">0</span><span style="display:inline;">+</span> <div data-i18n="stat_markets_label">рынков сбыта</div></div>
+                    <div class="stat"><span style="font-size: 2.2rem; padding-top: 10px;">FOB/CIF</span> <div data-i18n="stat_term_label">условия поставок</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Бегущая строка -->
+    <div class="marquee-section">
+        <div class="marquee-content">
+            <div class="marquee-item"><i class="fas fa-check-double"></i> SGS Certified</div>
+            <div class="marquee-item"><i class="fas fa-anchor"></i> OTEKO Port Taman</div>
+            <div class="marquee-item"><i class="fas fa-train"></i> RZD Logistics</div>
+            <div class="marquee-item"><i class="fas fa-globe"></i> Global Export</div>
+            <div class="marquee-item"><i class="fas fa-file-contract"></i> Direct Contracts</div>
+            <div class="marquee-item"><i class="fas fa-check-double"></i> SGS Certified</div>
+            <div class="marquee-item"><i class="fas fa-anchor"></i> OTEKO Port Taman</div>
+            <div class="marquee-item"><i class="fas fa-train"></i> RZD Logistics</div>
+            <div class="marquee-item"><i class="fas fa-globe"></i> Global Export</div>
+            <div class="marquee-item"><i class="fas fa-file-contract"></i> Direct Contracts</div>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="container">
+            <div class="reveal-text">
+                <div class="info-badge" style="border-color: var(--text-muted); color: var(--text-main);" data-i18n="about_badge">Активы и мощности</div>
+                <h2 class="section-title" data-i18n="about_title">Надёжный экспортёр из Кузбасса</h2>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 48px; margin-top: 48px;">
+                <div style="flex: 1.5; min-width: 280px;" class="reveal-text delay-100">
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px;" data-i18n="about_text_1">ООО «Промышленность и технологии» — промышленный холдинг, специализирующийся на добыче и реализации угля. Ключевой актив — угледобывающее предприятие УК «Анжерская-Южная».</p>
+                    <p style="color: var(--text-muted); font-size: 1.1rem;" data-i18n="about_text_2">Подтверждённые запасы составляют 116 млн тонн. Текущий объём добычи — 1,5 млн тонн в год. Обеспечиваем полный цикл: от добычи до погрузки на борт судна в порту назначения.</p>
+                    <ul class="about-list">
+                        <li><i class="fas fa-square"></i> <span data-i18n="about_li1">Сертификаты качества ГОСТ/ISO</span></li>
+                        <li><i class="fas fa-square"></i> <span data-i18n="about_li2">Лабораторный контроль SGS/Incolab</span></li>
+                        <li><i class="fas fa-square"></i> <span data-i18n="about_li3">Таможенное оформление</span></li>
+                        <li><i class="fas fa-square"></i> <span data-i18n="about_li4">Квоты РЖД и договоры со стивидором</span></li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 280px;" class="reveal-scale delay-200">
+                    <div class="strict-card">
+                        <i class="fas fa-file-invoice" style="font-size: 2rem; color: var(--accent); margin-bottom: 24px;"></i>
+                        <h3 style="margin-bottom: 16px; font-size: 1.2rem;" data-i18n="requisites_title">Данные экспортера</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 16px;"><strong>"INDUSTRY AND TECHNOLOGY" LLC</strong></p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="requisites_address">Юр. адрес: Москва, Пресненская наб., д. 6, стр. 2, Башня Империя, офис 3613</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="coal">
+        <div class="container">
+            <div class="reveal-text">
+                <h2 class="section-title" data-i18n="coal_title">Спецификация угля</h2>
+                <p class="section-sub" data-i18n="coal_sub">Предоставляем сертификаты качества на каждую партию. Строгий контроль фракции и калорийности.</p>
+            </div>
+            <div class="table-container reveal-scale delay-100">
+                <table class="spec-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="table_grade">Марка</th>
+                            <th data-i18n="table_size">Фракция</th>
+                            <th data-i18n="table_calorific">NCV (ккал/кг)</th>
+                            <th data-i18n="table_app">Применение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="opt_d">Д (Длиннопламенный)</td><td data-i18n="size_1">0–50 мм</td><td data-i18n="cal_1">5 800–6 200</td><td data-i18n="app_1">ТЭС, промышленность</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="opt_ss">СС (Слабоспекающийся)</td><td data-i18n="size_2">0–50 мм</td><td data-i18n="cal_2">6 000–6 500</td><td data-i18n="app_2">Генерация энергии, металлургия</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="opt_t">Т (Тощий)</td><td data-i18n="size_3">0–100 мм</td><td data-i18n="cal_3">6 300–6 800</td><td data-i18n="app_3">Цементные заводы, генерация</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="opt_a_large">Антрацит (АКО, АМ)</td><td data-i18n="size_4">13–100 мм</td><td data-i18n="cal_4">6 500–8 000</td><td data-i18n="app_4">Замена кокса, металлургия</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="opt_k">К (Коксующийся)</td><td data-i18n="size_5">0–100 мм</td><td data-i18n="cal_5">6 200–7 000</td><td data-i18n="app_5">Производство кокса, химия</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="logistics">
+        <div class="container">
+            <div class="reveal-text">
+                <h2 class="section-title" data-i18n="logistics_title">Глобальная логистика</h2>
+                <p class="section-sub" data-i18n="logistics_sub">Основной хаб отгрузки — глубоководный порт Тамань. Регулярные рейсы судов класса Panamax и Capesize.</p>
+            </div>
+            
+            <div class="map-wrapper reveal-scale delay-100">
+                <div class="map-pin pin-taman"><div class="pin-label" data-i18n="port_name">Тамань (Отгрузка)</div></div>
+                <div class="map-pin pin-india"><div class="pin-label" data-i18n="opt_india">Индия</div></div>
+                <div class="map-pin pin-china"><div class="pin-label" data-i18n="opt_china">Китай</div></div>
+                <div class="map-pin pin-vietnam"><div class="pin-label" data-i18n="opt_vietnam">Вьетнам</div></div>
+                <div class="map-pin pin-africa"><div class="pin-label" data-i18n="opt_africa">Африка</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="border-bottom: none; background: #0c0e10;">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: 64px;">
+                <div style="flex: 1; min-width: 280px;" class="reveal-text">
+                    <h2 class="section-title" data-i18n="form_title">Запрос котировки</h2>
+                    <p data-i18n="form_desc" style="color: var(--text-muted); margin-bottom: 48px;">Заполните форму для получения актуального коммерческого предложения (SCO) в течение рабочего дня.</p>
+                    
+                    <div style="margin-bottom: 32px;">
+                        <h4 style="color: var(--accent); margin-bottom: 8px; font-size: 0.9rem;" data-i18n="export_manager">ДИРЕКТОР ПО ЭКСПОРТУ</h4>
+                        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">Mayya Moreva</p>
+                        <p style="color: var(--text-muted); margin-bottom: 4px;">Email: <a href="mailto:CoalMoscow@gmail.com" style="color: #fff; text-decoration: none;">CoalMoscow@gmail.com</a></p>
+                        <p style="color: var(--text-muted);">Tel/WA: <a href="https://wa.me/79651234556" target="_blank" style="color: #fff; text-decoration: none;">+7 (965) 123-45-56</a></p>
+                    </div>
+                </div>
+                
+                <div style="flex: 1.5; min-width: 280px;" class="reveal-scale delay-100">
+                    <form id="quickForm" class="strict-card">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <input type="text" id="contactName" placeholder=" " required>
+                                <label for="contactName" data-i18n="form_company_ph">Компания / Контактное лицо</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="email" id="contactEmail" placeholder=" " required>
+                                <label for="contactEmail" data-i18n="form_email_ph">Email</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="tel" id="contactPhone" placeholder=" " required>
+                                <label for="contactPhone" data-i18n="form_phone_ph">Телефон</label>
+                            </div>
+                            <div class="input-group">
+                                <select id="contactCoal" required>
+                                    <option value="" disabled selected hidden></option>
+                                    <option value="D" data-i18n="opt_d">Д (Длиннопламенный)</option>
+                                    <option value="SS" data-i18n="opt_ss">СС (Слабоспекающийся)</option>
+                                    <option value="T" data-i18n="opt_t">Т (Тощий)</option>
+                                    <option value="A" data-i18n="opt_a_large">Антрацит (А)</option>
+                                    <option value="K" data-i18n="opt_k">К (Коксующийся)</option>
+                                </select>
+                                <label for="contactCoal" data-i18n="opt_coal_sel">Марка угля</label>
+                            </div>
+                            <div class="input-group full">
+                                <textarea id="contactMessage" placeholder=" "></textarea>
+                                <label for="contactMessage" data-i18n="form_message_ph">Требования к партии (объем, базис)</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn"><span data-i18n="form_button">Отправить запрос</span> <i class="fas fa-arrow-right"></i></button>
+                        <div id="formMessage" style="margin-top: 24px;"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="fab-container">
+    <a href="https://wa.me/79651234556" target="_blank" class="fab-btn btn-whatsapp" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <button class="fab-btn btn-top" id="backToTop" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</div>
+
+<footer>
+    <div class="container footer-flex">
+        <div class="footer-col" style="flex: 1.5; min-width: 250px;">
+            <h3 style="color: var(--accent);">INDUSTRY AND TECHNOLOGY</h3>
+            <p data-i18n="footer_about" style="color: #fff;">Добыча и экспорт угля из России</p>
+            <p style="font-size: 0.85rem; margin-top: 16px;"><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer_address">Москва, Башня Империя, офис 3613<br>Кемеровская обл., Шахта Анжерская-Южная</span></p>
+        </div>
+        <div class="footer-col" style="flex: 1; min-width: 250px;">
+            <h3 data-i18n="nav_contact">Контакты</h3>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:CoalMoscow@gmail.com" style="color: inherit; text-decoration: none;">CoalMoscow@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+79651234556" style="color: inherit; text-decoration: none;">+7 (965) 123-45-56</a></p>
+        </div>
+        <div class="footer-col" style="flex: 1; min-width: 250px;">
+            <h3>Legal</h3>
+            <p data-i18n="footer_terms">Incoterms 2020: CIF / FOB Taman.</p>
+            <p style="font-size: 0.8rem; margin-top: 32px; border-top: 1px solid var(--border); padding-top: 16px;">© <span id="currentYear">2026</span> LLC INDUSTRY AND TECHNOLOGY.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Intersection Observer для анимации появления (Clip-path и Scale)
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                
+                // Запуск счетчиков
+                if(entry.target.classList.contains('hero-text')) {
+                    document.querySelectorAll('.counter-value').forEach(el => {
+                        if(!el.classList.contains('counted')) {
+                            animateValue(el, 0, parseFloat(el.getAttribute('data-target')), 1500);
+                            el.classList.add('counted');
+                        }
+                    });
+                }
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-text, .reveal-scale').forEach(el => observer.observe(el));
+
+    // Функция анимации чисел
+    function animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            // Плавное замедление (easeOutExpo)
+            const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            let current = progress * (end - start) + start;
+            
+            if(end % 1 !== 0) obj.innerHTML = current.toFixed(1);
+            else obj.innerHTML = Math.floor(current);
+
+            if (progress < 1) window.requestAnimationFrame(step);
+            else obj.innerHTML = end;
+        };
+        window.requestAnimationFrame(step);
+    }
+
+    // Словари (обновленные)
+    const translations = {
+        ru: {
+            header_sub: "Добыча и экспорт угля | Офис 3613",
+            nav_about: "Компания", nav_coal: "Продукция", nav_logistics: "Логистика", nav_contact: "Связаться",
+            hero_badge: "FOB / CIF Порт Тамань",
+            hero_title: "Добыча и экспорт угля из России",
+            hero_desc: "Прямые контракты, сертифицированное качество, полное таможенное оформление. Надежная логистика для крупнотоннажных судов.",
+            stat_volume_label: "млн т в год", stat_markets_label: "рынков сбыта", stat_term_label: "условия поставок",
+            export_manager: "ДИРЕКТОР ПО ЭКСПОРТУ",
+            about_badge: "Активы и мощности", about_title: "Надёжный экспортёр из Кузбасса",
+            about_text_1: "ООО «Промышленность и технологии» — промышленный холдинг, специализирующийся на добыче и реализации угля. Ключевой актив — предприятие УК «Анжерская-Южная».",
+            about_text_2: "Подтверждённые запасы составляют 116 млн тонн. Текущий объём добычи — 1,5 млн тонн в год. Обеспечиваем полный цикл: от добычи до погрузки в порту назначения.",
+            about_li1: "Сертификаты качества ГОСТ/ISO", about_li2: "Лабораторный контроль SGS/Incolab",
+            about_li3: "Таможенное оформление", about_li4: "Квоты РЖД и договоры со стивидором",
+            requisites_title: "Данные экспортера", requisites_address: "Юр. адрес: Москва, Пресненская наб., д. 6, стр. 2, Башня Империя, офис 3613",
+            coal_title: "Спецификация угля", coal_sub: "Предоставляем сертификаты качества на каждую партию. Строгий контроль фракции и калорийности.",
+            table_grade: "Марка", table_size: "Фракция", table_calorific: "NCV (ккал/кг)", table_app: "Применение",
+            opt_d: "Д (Длиннопламенный)", opt_ss: "СС (Слабоспекающийся)", opt_t: "Т (Тощий)", opt_a_large: "Антрацит (А)", opt_k: "К (Коксующийся)",
+            size_1: "0–50 мм", size_2: "0–50 мм", size_3: "0–100 мм", size_4: "13–100 мм", size_5: "0–100 мм",
+            cal_1: "5 800–6 200", cal_2: "6 000–6 500", cal_3: "6 300–6 800", cal_4: "6 500–8 000", cal_5: "6 200–7 000",
+            app_1: "ТЭС, промышленность", app_2: "Генерация энергии, металлургия", app_3: "Цементные заводы, генерация", app_4: "Замена кокса, металлургия", app_5: "Производство кокса, химия",
+            logistics_title: "Глобальная логистика", logistics_sub: "Основной хаб отгрузки — глубоководный порт Тамань. Регулярные рейсы судов класса Panamax и Capesize.",
+            port_name: "Тамань (Отгрузка)", opt_india: "Индия", opt_china: "Китай", opt_vietnam: "Вьетнам", opt_africa: "Африка",
+            form_title: "Запрос котировки", form_desc: "Заполните форму для получения актуального коммерческого предложения (SCO) в течение рабочего дня.",
+            form_button: "Отправить запрос",
+            form_company_ph: "Компания / Контактное лицо", form_email_ph: "Email", form_phone_ph: "Телефон", form_message_ph: "Требования к партии (объем, базис)", opt_coal_sel: "Марка угля",
+            footer_about: "Добыча и экспорт угля из России", footer_address: "Москва, Башня Империя, офис 3613<br>Кемеровская обл., Шахта Анжерская-Южная", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
+            form_err_req: "Заполните обязательные поля", form_success: "Запрос отправлен. Мы свяжемся с вами."
+        },
+        en: {
+            header_sub: "Coal Mining & Export | Office 3613",
+            nav_about: "Company", nav_coal: "Products", nav_logistics: "Logistics", nav_contact: "Contact",
+            hero_badge: "FOB / CIF Port Taman",
+            hero_title: "Coal Mining & Export from Russia",
+            hero_desc: "Direct contracts, certified quality, full customs clearance. Reliable logistics for large-capacity vessels.",
+            stat_volume_label: "mln t per year", stat_markets_label: "export markets", stat_term_label: "delivery terms",
+            export_manager: "EXPORT DIRECTOR",
+            about_badge: "Assets & Capacity", about_title: "Reliable Exporter from Kuzbass",
+            about_text_1: "INDUSTRY AND TECHNOLOGY LLC is an industrial holding specializing in coal mining and sales. Key asset: MC Anzherskaya-Yuzhnaya.",
+            about_text_2: "Proven reserves: 116 million tons. Current production: 1.5 million tons/year. We provide a full cycle from mining to loading at the destination port.",
+            about_li1: "GOST/ISO quality certificates", about_li2: "SGS/Incolab lab control",
+            about_li3: "Full customs clearance", about_li4: "Rail quotas & stevedore contracts",
+            requisites_title: "Exporter Details", requisites_address: "Legal: Moscow, Presnenskaya emb., 6 bld 2, Empire Tower, office 3613",
+            coal_title: "Coal Specification", coal_sub: "Quality certificates provided for each batch. Strict control of fraction and calorific value.",
+            table_grade: "Grade", table_size: "Fraction", table_calorific: "NCV (kcal/kg)", table_app: "Application",
+            opt_d: "D (Long-flame)", opt_ss: "SS (Weakly caking)", opt_t: "T (Lean)", opt_a_large: "Anthracite (A)", opt_k: "K (Coking)",
+            size_1: "0–50 mm", size_2: "0–50 mm", size_3: "0–100 mm", size_4: "13–100 mm", size_5: "0–100 mm",
+            cal_1: "5,800–6,200", cal_2: "6,000–6,500", cal_3: "6,300–6,800", cal_4: "6,500–8,000", cal_5: "6,200–7,000",
+            app_1: "Thermal plants, industry", app_2: "Power generation, metallurgy", app_3: "Cement plants, generation", app_4: "Coke replacement, metallurgy", app_5: "Coke production, chemicals",
+            logistics_title: "Global Logistics", logistics_sub: "Main shipping hub: deep-water Port Taman. Regular sailings of Panamax and Capesize vessels.",
+            port_name: "Taman (Loading)", opt_india: "India", opt_china: "China", opt_vietnam: "Vietnam", opt_africa: "Africa",
+            form_title: "Request a Quote", form_desc: "Fill out the form to receive a Soft Corporate Offer (SCO) within one business day.",
+            form_button: "Send Request",
+            form_company_ph: "Company / Contact Person", form_email_ph: "Email", form_phone_ph: "Phone", form_message_ph: "Batch requirements (volume, basis)", opt_coal_sel: "Coal Grade",
+            footer_about: "Coal mining and export from Russia", footer_address: "Moscow, Empire Tower, office 3613<br>Kemerovo region, Anzherskaya-Yuzhnaya Mine", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
+            form_err_req: "Fill required fields", form_success: "Request sent. We will contact you."
+        },
+        zh: {
+            header_sub: "煤炭开采与出口 | 办公室 3613",
+            nav_about: "公司", nav_coal: "产品", nav_logistics: "物流", nav_contact: "联系",
+            hero_badge: "FOB / CIF 塔曼港",
+            hero_title: "俄罗斯煤炭开采与出口",
+            hero_desc: "直接合同，认证质量，全程清关。为大型船舶提供可靠物流。",
+            stat_volume_label: "百万吨/年", stat_markets_label: "出口市场", stat_term_label: "交货条款",
+            export_manager: "出口总监",
+            about_badge: "资产与产能", about_title: "来自库兹巴斯的可靠出口商",
+            about_text_1: "“工业与技术”有限责任公司是一家专门从事煤炭开采和销售的控股公司。核心资产：Anzherskaya-Yuzhnaya 矿业。",
+            about_text_2: "探明储量：1.16亿吨。当前产量：150万吨/年。提供从开采到装船的全周期服务。",
+            about_li1: "GOST/ISO 质量认证", about_li2: "SGS/Incolab 实验室控制",
+            about_li3: "全面清关服务", about_li4: "铁路配额与码头合同",
+            requisites_title: "出口商详情", requisites_address: "法定：莫斯科, 帝国大厦, 3613室",
+            coal_title: "煤炭规格", coal_sub: "每批提供质量证书。严格控制粒度和热值。",
+            table_grade: "等级", table_size: "粒度", table_calorific: "低位发热量 (kcal/kg)", table_app: "应用",
+            opt_d: "D (长焰煤)", opt_ss: "SS (弱粘结煤)", opt_t: "T (瘦煤)", opt_a_large: "无烟煤 (A)", opt_k: "K (炼焦煤)",
+            size_1: "0–50 mm", size_2: "0–50 mm", size_3: "0–100 mm", size_4: "13–100 mm", size_5: "0–100 mm",
+            cal_1: "5,800–6,200", cal_2: "6,000–6,500", cal_3: "6,300–6,800", cal_4: "6,500–8,000", cal_5: "6,200–7,000",
+            app_1: "火力发电厂，工业", app_2: "发电，冶金", app_3: "水泥厂，发电", app_4: "焦炭替代，冶金", app_5: "焦炭生产，化工",
+            logistics_title: "全球物流", logistics_sub: "主要航运枢纽：深水塔曼港。巴拿马型和好望角型船舶定期航行。",
+            port_name: "塔曼 (装货)", opt_india: "印度", opt_china: "中国", opt_vietnam: "越南", opt_africa: "非洲",
+            form_title: "请求报价", form_desc: "填写表格以在一个工作日内收到软企业报价 (SCO)。",
+            form_button: "发送请求",
+            form_company_ph: "公司 / 联系人", form_email_ph: "电子邮件", form_phone_ph: "电话", form_message_ph: "批次要求 (数量, 条款)", opt_coal_sel: "煤炭等级",
+            footer_about: "俄罗斯煤炭开采与出口", footer_address: "莫斯科, 帝国大厦, 3613室<br>克麦罗沃地区, Anzherskaya-Yuzhnaya 矿", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
+            form_err_req: "请填写必填项", form_success: "请求已发送。我们将与您联系。"
+        },
+        hi: {
+            header_sub: "कोयला खनन और निर्यात | कार्यालय 3613",
+            nav_about: "कंपनी", nav_coal: "उत्पाद", nav_logistics: "लॉजिस्टिक्स", nav_contact: "संपर्क करें",
+            hero_badge: "FOB / CIF तमान बंदरगाह",
+            hero_title: "रूस से कोयला खनन और निर्यात",
+            hero_desc: "प्रत्यक्ष अनुबंध, प्रमाणित गुणवत्ता, पूर्ण सीमा शुल्क निकासी। बड़े जहाजों के लिए विश्वसनीय रसद।",
+            stat_volume_label: "मिलियन टन/वर्ष", stat_markets_label: "निर्यात बाजार", stat_term_label: "वितरण शर्तें",
+            export_manager: "निर्यात निदेशक",
+            about_badge: "संपत्ति और क्षमता", about_title: "कुज़बास से विश्वसनीय निर्यातक",
+            about_text_1: "उद्योग और प्रौद्योगिकी एलएलसी कोयला खनन और बिक्री में विशेषज्ञता वाला एक औद्योगिक होल्डिंग है। मुख्य संपत्ति: एमसी अंज़ेर्सकाया-युज़नाया।",
+            about_text_2: "सिद्ध भंडार: 116 मिलियन टन। वर्तमान उत्पादन: 1.5 मिलियन टन/वर्ष। खनन से लोडिंग तक पूर्ण चक्र।",
+            about_li1: "GOST/ISO गुणवत्ता प्रमाण पत्र", about_li2: "SGS/Incolab प्रयोगशाला नियंत्रण",
+            about_li3: "पूर्ण सीमा शुल्क निकासी", about_li4: "रेल कोटा और स्टीवडोर अनुबंध",
+            requisites_title: "निर्यातक विवरण", requisites_address: "कानूनी: मॉस्को, एम्पायर टॉवर, कार्यालय 3613",
+            coal_title: "कोयला विशिष्टता", coal_sub: "प्रत्येक बैच के लिए गुणवत्ता प्रमाण पत्र। अंश और कैलोरी मान का सख्त नियंत्रण।",
+            table_grade: "ग्रेड", table_size: "अंश", table_calorific: "NCV (kcal/kg)", table_app: "उपयोग",
+            opt_d: "D (लॉन्ग-फ्लेम)", opt_ss: "SS (वीकली केकिंग)", opt_t: "T (लीन)", opt_a_large: "एन्थ्रेसाइट (A)", opt_k: "K (कोकिंग)",
+            size_1: "0–50 mm", size_2: "0–50 mm", size_3: "0–100 mm", size_4: "13–100 mm", size_5: "0–100 mm",
+            cal_1: "5,800–6,200", cal_2: "6,000–6,500", cal_3: "6,300–6,800", cal_4: "6,500–8,000", cal_5: "6,200–7,000",
+            app_1: "थर्मल प्लांट, उद्योग", app_2: "बिजली उत्पादन, धातुकर्म", app_3: "सीमेंट कारखाने, जनरेशन", app_4: "कोक प्रतिस्थापन, धातुकर्म", app_5: "कोक उत्पादन, रसायन",
+            logistics_title: "वैश्विक रसद", logistics_sub: "मुख्य शिपिंग हब: गहरे पानी का तमान बंदरगाह। पैनामैक्स और केपसाइज़ जहाजों की नियमित नौकायन।",
+            port_name: "तमान (लोडिंग)", opt_india: "भारत", opt_china: "चीन", opt_vietnam: "वियतनाम", opt_africa: "अफ्रीका",
+            form_title: "उद्धरण का अनुरोध करें", form_desc: "एक व्यावसायिक दिन के भीतर SCO प्राप्त करने के लिए फॉर्म भरें।",
+            form_button: "अनुरोध भेजें",
+            form_company_ph: "कंपनी / संपर्क व्यक्ति", form_email_ph: "ईमेल", form_phone_ph: "फ़ोन", form_message_ph: "बैच आवश्यकताएं (मात्रा, शर्तें)", opt_coal_sel: "कोयला ग्रेड",
+            footer_about: "रूस से कोयला खनन और निर्यात", footer_address: "मॉस्को, एम्पायर टॉवर, कार्यालय 3613", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
+            form_err_req: "आवश्यक फ़ील्ड भरें", form_success: "अनुरोध भेजा गया। हम आपसे संपर्क करेंगे।"
+        },
+        ar: {
+            header_sub: "تعدين وتصدير الفحم | مكتب 3613",
+            nav_about: "الشركة", nav_coal: "المنتجات", nav_logistics: "اللوجستيات", nav_contact: "اتصل بنا",
+            hero_badge: "FOB / CIF ميناء تامان",
+            hero_title: "تعدين وتصدير الفحم من روسيا",
+            hero_desc: "عقود مباشرة، جودة معتمدة، تخليص جمركي كامل. لوجستيات موثوقة للسفن ذات السعة الكبيرة.",
+            stat_volume_label: "مليون طن سنويًا", stat_markets_label: "أسواق التصدير", stat_term_label: "شروط التسليم",
+            export_manager: "مدير التصدير",
+            about_badge: "الأصول والقدرات", about_title: "مصدر موثوق من كوزباس",
+            about_text_1: "الصناعة والتكنولوجيا ذ.م.م هي شركة قابضة متخصصة في تعدين وبيع الفحم. الأصل الرئيسي: منجم Anzherskaya-Yuzhnaya.",
+            about_text_2: "الاحتياطيات المؤكدة: 116 مليون طن. الإنتاج الحالي: 1.5 مليون طن / سنة. دورة كاملة من التعدين إلى التحميل.",
+            about_li1: "شهادات الجودة GOST/ISO", about_li2: "مراقبة مختبر SGS/Incolab",
+            about_li3: "تخليص جمركي كامل", about_li4: "حصص السكك الحديدية وعقود التحميل",
+            requisites_title: "تفاصيل المصدر", requisites_address: "القانوني: موسكو، برج الإمبراطورية، مكتب 3613",
+            coal_title: "مواصفات الفحم", coal_sub: "شهادات الجودة لكل دفعة. رقابة صارمة على الحجم والقيمة الحرارية.",
+            table_grade: "الدرجة", table_size: "الحجم", table_calorific: "القيمة الحرارية (kcal/kg)", table_app: "التطبيق",
+            opt_d: "D (طويل اللهب)", opt_ss: "SS (ضعيف التكتل)", opt_t: "T (نحيف)", opt_a_large: "أنثراسايت (A)", opt_k: "K (كوك)",
+            size_1: "0–50 mm", size_2: "0–50 mm", size_3: "0–100 mm", size_4: "13–100 mm", size_5: "0–100 mm",
+            cal_1: "5,800–6,200", cal_2: "6,000–6,500", cal_3: "6,300–6,800", cal_4: "6,500–8,000", cal_5: "6,200–7,000",
+            app_1: "محطات حرارية، صناعة", app_2: "توليد الطاقة، معادن", app_3: "مصانع الأسمنت", app_4: "بديل الكوك، معادن", app_5: "إنتاج الكوك، كيماويات",
+            logistics_title: "لوجستيات عالمية", logistics_sub: "المحور الرئيسي: ميناء تامان العميق. إبحار منتظم لسفن باناماكس.",
+            port_name: "تامان (تحميل)", opt_india: "الهند", opt_china: "الصين", opt_vietnam: "فيتنام", opt_africa: "أفريقيا",
+            form_title: "طلب عرض سعر", form_desc: "املأ النموذج لاستلام عرض (SCO) خلال يوم عمل واحد.",
+            form_button: "إرسال الطلب",
+            form_company_ph: "الشركة / الشخص المسؤول", form_email_ph: "البريد الإلكتروني", form_phone_ph: "الهاتف", form_message_ph: "متطلبات الدفعة (الحجم، الأساس)", opt_coal_sel: "درجة الفحم",
+            footer_about: "تعدين وتصدير الفحم من روسيا", footer_address: "موسكو، برج الإمبراطورية، مكتب 3613", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
+            form_err_req: "املأ الحقول المطلوبة", form_success: "تم إرسال الطلب. سنتصل بك."
+        }
+    };
+
+    function setLanguage(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key] !== undefined) {
+                if (el.tagName === 'LABEL' || el.tagName === 'OPTION') {
+                    el.textContent = translations[lang][key];
+                } else {
+                    el.innerHTML = translations[lang][key];
+                }
+            }
+        });
+        localStorage.setItem('coalrus_lang', lang);
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        const currentBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
+        if (currentBtn) {
+            currentBtn.classList.add('active');
+            setTimeout(() => {
+                const slider = document.getElementById('langSlider');
+                if (slider) {
+                    slider.style.width = `${currentBtn.offsetWidth}px`;
+                    slider.style.transform = `translateX(${currentBtn.offsetLeft}px)`;
+                }
+            }, 50);
+        }
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', function() {
+        setLanguage(this.getAttribute('data-lang'));
+    }));
+
+    const savedLang = localStorage.getItem('coalrus_lang') || 'ru';
+    setLanguage(savedLang);
+
+    // Update slider position after full layout
+    window.addEventListener('load', () => {
+        const currentBtn = document.querySelector(`.lang-btn.active`);
+        if (currentBtn) {
+            const slider = document.getElementById('langSlider');
+            if (slider) {
+                slider.style.width = `${currentBtn.offsetWidth}px`;
+                slider.style.transform = `translateX(${currentBtn.offsetLeft}px)`;
+            }
+        }
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    menuToggle?.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = menuToggle.querySelector('i');
+        if(navLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    });
+
+    // Back to Top functionality
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn?.classList.add('visible');
+        } else {
+            backToTopBtn?.classList.remove('visible');
+        }
+    });
+    backToTopBtn?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Set current year dynamically
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+    // Form logic
+    document.getElementById('quickForm')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const lang = localStorage.getItem('coalrus_lang') || 'ru';
+        const name = document.getElementById('contactName').value.trim();
+        const email = document.getElementById('contactEmail').value.trim();
+        const phone = document.getElementById('contactPhone').value.trim();
+        const msgDiv = document.getElementById('formMessage');
+        
+        if (!name || !email || !phone) {
+            msgDiv.innerHTML = `<span style="color: #ef4444; font-family: var(--font-heading); font-size: 0.9rem;"><i class="fas fa-exclamation-triangle"></i> ${translations[lang]['form_err_req']}</span>`;
+            return;
+        }
+        
+        msgDiv.innerHTML = `<span style="color: #10b981; font-family: var(--font-heading); font-size: 0.9rem;"><i class="fas fa-check-circle"></i> ${translations[lang]['form_success']}</span>`;
+        this.reset();
+        setTimeout(() => { msgDiv.innerHTML = ''; }, 5000);
+    });
+</script>
+</body>
