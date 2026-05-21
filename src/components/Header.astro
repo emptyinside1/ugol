@@ -32,6 +32,11 @@ const langs = ['ru', 'en', 'zh', 'hi', 'ar'];
         </button>
 
         <nav class="nav-links" id="navLinks">
+            <div class="lang-switch mobile-only" dir="ltr">
+                {langs.map((l) => (
+                    <a href={l === 'ru' ? `/${cleanPath}` : `/${l}/${cleanPath}`} class={`lang-btn ${lang === l ? 'active' : ''}`} data-lang={l}>{l.toUpperCase()}</a>
+                ))}
+            </div>
             <a href="#about">{t('nav_about')}</a>
             <a href="#coal">{t('nav_coal')}</a>
             <a href="#logistics">{t('nav_logistics')}</a>
@@ -107,10 +112,18 @@ const langs = ['ru', 'en', 'zh', 'hi', 'ar'];
     .menu-toggle { display: none; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
     .menu-toggle svg { fill: white; }
 
+    .mobile-only { display: none !important; }
+    
+    @media (max-width: 900px) {
+        .lang-switch:not(.mobile-only) { display: none; }
+        .mobile-only { display: flex !important; margin-bottom: 24px; width: 100%; max-width: 300px; }
+    }
     @media (max-width: 768px) {
         header { padding: 12px 0; }
-        .header-flex { position: relative; }
-        .logo-title { font-size: 1rem; }
+        .header-flex { position: relative; gap: 12px; }
+        .logo-title { font-size: 0.9rem; }
+        .logo-text p { display: none; }
+        .logo-area { gap: 8px; }
         
         .menu-toggle { display: block; }
         
