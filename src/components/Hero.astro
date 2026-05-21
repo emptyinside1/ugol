@@ -1,0 +1,94 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <div class="hero-text reveal-text">
+            <div class="info-badge">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 8H5c-1.1 0-2 .9-2 2v6h18v-6c0-1.1-.9-2-2-2zm-7 8H8v-2h4v2zm4 0h-2v-2h2v2zm2 0h-2v-2h2v2zM6 14h2v2H6v-2zm12-4v-2c0-1.1-.9-2-2-2h-3V4c0-1.1-.9-2-2-2s-2 .9-2 2v2H6c-1.1 0-2 .9-2 2v2h16z"/></svg> 
+                <span>{t('hero_badge')}</span>
+            </div>
+            <h1>{t('hero_title')}</h1>
+            <p>{t('hero_desc')}</p>
+            <div class="hero-stats">
+                <div class="stat"><span class="counter-value" data-target="1.2">0</span> <div>{t('stat_volume_label')}</div></div>
+                <div class="stat"><span class="counter-value" data-target="5">0</span><span style="display:inline;">+</span> <div>{t('stat_markets_label')}</div></div>
+                <div class="stat"><span style="font-size: clamp(1.8rem, 3vw, 2.2rem); padding-top: 10px;">FOB/CIF</span> <div>{t('stat_term_label')}</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Бегущая строка -->
+<div class="marquee-section">
+    <div class="marquee-content">
+        <div class="marquee-item">
+            <svg class="svg-icon" style="color: var(--accent);" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            SGS Certified
+        </div>
+        <div class="marquee-item">
+            <svg class="svg-icon" style="color: var(--accent);" viewBox="0 0 24 24"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.32 2.67 7.25 8 11.8 5.33-4.55 8-8.48 8-11.8C20 5.22 16.2 2 12 2zm0 11.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 6.5 12 6.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+            OTEKO Port Taman
+        </div>
+        <div class="marquee-item">
+            <svg class="svg-icon" style="color: var(--accent);" viewBox="0 0 24 24"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zm0 2c3.31 0 6.1.41 6.5 2.5C18.1 8.59 15.31 9 12 9s-6.1-.41-6.5-2.5C5.9 4.41 8.69 4 12 4zm0 13c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6.5-6H5.5v-2h13v2z"/></svg>
+            RZD Logistics
+        </div>
+        <div class="marquee-item">
+            <svg class="svg-icon" style="color: var(--accent);" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+            Global Export
+        </div>
+        <div class="marquee-item">
+            <svg class="svg-icon" style="color: var(--accent);" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+            Direct Contracts
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero { position: relative; padding: clamp(100px, 15vh, 140px) 0; display: flex; align-items: center; min-height: 80vh; overflow: hidden; }
+    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('/images/hero-bg.webp') center/cover no-repeat; background-color: #222; z-index: 0; }
+    .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(17,19,21,0.95) 0%, rgba(17,19,21,0.7) 100%); z-index: 1; }
+    
+    .hero-content { position: relative; z-index: 2; width: 100%; display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 64px); align-items: center; }
+    .hero-text { flex: 1.2; min-width: 320px; border-inline-start: 2px solid var(--accent); padding-inline-start: clamp(16px, 3vw, 32px); }
+    .hero-text h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; margin-bottom: clamp(16px, 3vh, 24px); text-transform: uppercase; line-height: 1.1; }
+    .hero-text p { font-size: clamp(1rem, 2vw, 1.1rem); margin-bottom: clamp(32px, 5vh, 48px); max-width: 600px; color: #cbd5e1; }
+    
+    .info-badge { border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 8px; padding: 8px 24px; font-size: clamp(0.7rem, 1.5vw, 0.8rem); font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; color: var(--accent); border-radius: 4px; }
+    
+    .hero-stats { display: flex; gap: clamp(24px, 4vw, 48px); flex-wrap: wrap; }
+    .stat span { font-family: var(--font-heading); font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 800; color: var(--accent); display: block; margin-bottom: 4px; line-height: 1; }
+    .stat { color: var(--text-muted); font-size: clamp(0.7rem, 1.5vw, 0.8rem); font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* Бегущая строка партнеров */
+    .marquee-section { background: #000; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; white-space: nowrap; }
+    .marquee-content { display: inline-flex; animation: marquee 30s linear infinite; }
+    .marquee-item { display: inline-flex; align-items: center; gap: 12px; margin: 0 40px; color: var(--text-muted); font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5; transition: var(--transition); }
+    .marquee-item:hover { opacity: 1; color: #fff; }
+    
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    @media (max-width: 768px) {
+        .hero { padding: 80px 0 60px; min-height: auto; }
+        .hero-content { gap: 40px; justify-content: center; }
+        
+        .hero-text { 
+            border-inline-start: none; 
+            border-top: 2px solid var(--accent); 
+            padding: 24px 0 0 0; 
+            text-align: center; 
+        }
+        .hero-text p { margin: 0 auto 32px; }
+        .info-badge { margin: 0 auto 24px; display: inline-flex; }
+        
+        .hero-stats { justify-content: center; gap: 24px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+        .marquee-item { font-size: 1rem; margin: 0 20px; }
+    }
+</style>

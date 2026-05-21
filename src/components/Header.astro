@@ -1,0 +1,126 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const pathname = Astro.url.pathname;
+const cleanPath = pathname.replace(`/${lang}/`, '/').replace(/^\/|\/$/g, '');
+
+const langs = ['ru', 'en', 'zh', 'hi', 'ar'];
+---
+<header>
+    <div class="container header-flex">
+        <a href="#" class="logo-area">
+            <!-- Icon SVG inline -->
+            <svg class="svg-icon logo-icon" viewBox="0 0 24 24" style="color: var(--accent);"><path d="M12 0l-12 12 12 12 12-12z"/></svg>
+            <div class="logo-text">
+                <span class="logo-title">INDUSTRY AND TECHNOLOGY</span>
+                <p>{t('header_sub')}</p>
+            </div>
+        </a>
+        
+        <div class="lang-switch" dir="ltr">
+            <div class="lang-slider" id="langSlider"></div>
+            {langs.map((l) => (
+                <a href={l === 'ru' ? `/${cleanPath}` : `/${l}/${cleanPath}`} class={`lang-btn ${lang === l ? 'active' : ''}`} data-lang={l}>{l.toUpperCase()}</a>
+            ))}
+        </div>
+        
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+            <svg class="svg-icon icon-bars" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            <svg class="svg-icon icon-close" viewBox="0 0 24 24" style="display: none;"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#about">{t('nav_about')}</a>
+            <a href="#coal">{t('nav_coal')}</a>
+            <a href="#logistics">{t('nav_logistics')}</a>
+            <a href="#contact" class="btn-outline">{t('nav_contact')}</a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    const currentBtn = document.querySelector(`.lang-btn.active`) as HTMLElement;
+    window.addEventListener('load', () => {
+        if (currentBtn) {
+            const slider = document.getElementById('langSlider');
+            if (slider) {
+                slider.style.width = `${currentBtn.offsetWidth}px`;
+                slider.style.transform = `translateX(${currentBtn.offsetLeft}px)`;
+            }
+        }
+    });
+
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    menuToggle?.addEventListener('click', () => {
+        navLinks?.classList.toggle('active');
+        const iconBars = menuToggle.querySelector('.icon-bars') as HTMLElement;
+        const iconClose = menuToggle.querySelector('.icon-close') as HTMLElement;
+        if(navLinks?.classList.contains('active')) {
+            iconBars.style.display = 'none';
+            iconClose.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        } else {
+            iconClose.style.display = 'none';
+            iconBars.style.display = 'block';
+            document.body.style.overflow = '';
+        }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks?.classList.remove('active');
+            const iconBars = menuToggle?.querySelector('.icon-bars') as HTMLElement;
+            const iconClose = menuToggle?.querySelector('.icon-close') as HTMLElement;
+            if (iconBars && iconClose) {
+                iconClose.style.display = 'none';
+                iconBars.style.display = 'block';
+            }
+            document.body.style.overflow = '';
+        });
+    });
+</script>
+
+<style>
+    header { background: rgba(17, 19, 21, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; padding: 16px 0; }
+    .header-flex { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo-area { display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit; }
+    .logo-icon { font-size: 1.8rem; }
+    .logo-title { font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; display: block; font-family: var(--font-heading);}
+    .logo-text p { font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.05em;}
+    
+    .lang-switch { display: flex; gap: 4px; align-items: center; justify-content: center; position: relative; background: rgba(255, 255, 255, 0.05); padding: 4px; border-radius: 20px; border: 1px solid var(--border); }
+    .lang-btn { text-decoration: none; display: inline-block; position: relative; z-index: 2; background: transparent; border: none; color: var(--text-muted); font-family: var(--font-heading); font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: color 0.3s; letter-spacing: 0.05em; padding: 6px 12px; border-radius: 16px; }
+    .lang-btn:hover { color: #fff; }
+    .lang-btn.active { color: #000; }
+    .lang-slider { position: absolute; top: 4px; bottom: 4px; left: 0; background: var(--accent); border-radius: 16px; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), width 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1; }
+    
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-family: var(--font-heading); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); position: relative; }
+    .nav-links a:not(.btn-outline)::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: var(--transition); }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:not(.btn-outline):hover::after { width: 100%; }
+
+    .menu-toggle { display: none; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+    .menu-toggle svg { fill: white; }
+
+    @media (max-width: 768px) {
+        header { padding: 12px 0; }
+        .header-flex { position: relative; }
+        .logo-title { font-size: 1rem; }
+        
+        .menu-toggle { display: block; }
+        
+        .nav-links { 
+            position: fixed; top: 60px; inset-inline-start: 0; width: 100%; height: calc(100vh - 60px); background: var(--bg); 
+            flex-direction: column; padding: 40px 24px; border-bottom: 1px solid var(--border);
+            transform: translateY(-100%); opacity: 0; pointer-events: none; transition: var(--transition);
+            z-index: 99; overflow-y: auto; justify-content: flex-start;
+        }
+        .nav-links.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
+        .btn-outline { width: 100%; margin-top: 8px; }
+    }
+</style>

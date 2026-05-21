@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>"INDUSTRY AND TECHNOLOGY" LLC | CoalMoscow.com | CoalMoscow.ru</title>
     <meta name="description" content="Добыча и экспорт угля из России. Поставки на условиях CIF, FOB, порт Тамань. CoalMoscow.com">
+    <meta property="og:title" content="INDUSTRY AND TECHNOLOGY LLC | CoalMoscow.com">
+    <meta property="og:description" content="Extraction and export of coal from Russia. CIF, FOB deliveries, Port of Taman.">
+    <meta property="og:url" content="https://coalmoscow.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://coalmoscow.com">
+    
+    <!-- Favicon (Emoji-based base64) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
+
     <!-- Подключение базового шрифта Inter и акцентного Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -25,9 +35,9 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { overflow-y: scroll; scroll-behavior: smooth; } 
-        body { font-family: var(--font-body); background: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        html { overflow-y: scroll; scroll-behavior: smooth; scroll-padding-top: 80px; } 
+        body { font-family: var(--font-body); background: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; text-align: start; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 32px); }
         
         h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.2; letter-spacing: -0.01em; }
         
@@ -43,45 +53,49 @@
 
         /* Header */
         header { background: rgba(17, 19, 21, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; padding: 16px 0; }
-        .header-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
-        .logo-area { display: flex; align-items: center; gap: 16px; }
+        .header-flex { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .logo-area { display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit; }
         .logo-icon { color: var(--accent); font-size: 1.8rem; }
         .logo-text h1 { font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
         .logo-text p { font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.05em;}
         
         /* Lang Switcher */
-        .lang-switch { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center; }
-        .lang-btn { background: transparent; border: none; color: var(--text-muted); font-family: var(--font-heading); font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: var(--transition); letter-spacing: 0.05em; padding: 4px; }
+        .lang-switch { display: flex; gap: 4px; align-items: center; justify-content: center; position: relative; background: rgba(255, 255, 255, 0.05); padding: 4px; border-radius: 20px; border: 1px solid var(--border); }
+        .lang-btn { position: relative; z-index: 2; background: transparent; border: none; color: var(--text-muted); font-family: var(--font-heading); font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: color 0.3s; letter-spacing: 0.05em; padding: 6px 12px; border-radius: 16px; }
         .lang-btn:hover { color: #fff; }
-        .lang-btn.active { color: var(--accent); }
-        .lang-separator { color: var(--border); font-size: 0.8rem; }
+        .lang-btn.active { color: #000; }
+        .lang-slider { position: absolute; top: 4px; bottom: 4px; left: 0; background: var(--accent); border-radius: 16px; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), width 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1; }
+        .lang-separator { display: none; }
         
         /* Nav */
-        .nav-links { display: flex; gap: 32px; flex-wrap: wrap; align-items: center; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
         .nav-links a { color: var(--text-muted); text-decoration: none; font-family: var(--font-heading); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); position: relative; }
         .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: var(--transition); }
         .nav-links a:hover { color: #fff; }
         .nav-links a:hover::after { width: 100%; }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle { display: none; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
         
-        .btn-outline { border: 1px solid var(--accent); padding: 12px 24px; color: var(--accent) !important; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); text-align: center; }
+        .btn-outline { border: 1px solid var(--accent); padding: 12px 24px; color: var(--accent) !important; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); text-align: center; border-radius: 4px; }
         .btn-outline::after { display: none; }
         .btn-outline:hover { background: var(--accent); color: var(--bg) !important; box-shadow: 0 0 15px rgba(255, 90, 0, 0.3); }
 
         /* Hero Section */
-        .hero { position: relative; padding: 140px 0; display: flex; align-items: center; min-height: 80vh; overflow: hidden; }
+        .hero { position: relative; padding: clamp(100px, 15vh, 140px) 0; display: flex; align-items: center; min-height: 80vh; overflow: hidden; }
         .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1587304561081-30154e2dc603?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat; z-index: 0; }
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(17,19,21,0.95) 0%, rgba(17,19,21,0.7) 100%); z-index: 1; }
         
-        .hero-content { position: relative; z-index: 2; width: 100%; display: flex; flex-wrap: wrap; gap: 64px; align-items: center; }
-        .hero-text { flex: 1.2; min-width: 320px; border-left: 2px solid var(--accent); padding-left: 32px; }
-        .hero-text h2 { font-size: 4rem; font-weight: 800; margin-bottom: 24px; text-transform: uppercase; line-height: 1.1; }
-        .hero-text p { font-size: 1.1rem; margin-bottom: 48px; max-width: 600px; color: #cbd5e1; }
+        .hero-content { position: relative; z-index: 2; width: 100%; display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 64px); align-items: center; }
+        .hero-text { flex: 1.2; min-width: 320px; border-inline-start: 2px solid var(--accent); padding-inline-start: clamp(16px, 3vw, 32px); }
+        .hero-text h2 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; margin-bottom: clamp(16px, 3vh, 24px); text-transform: uppercase; line-height: 1.1; }
+        .hero-text p { font-size: clamp(1rem, 2vw, 1.1rem); margin-bottom: clamp(32px, 5vh, 48px); max-width: 600px; color: #cbd5e1; }
         
-        .info-badge { border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 8px; padding: 8px 24px; font-size: 0.8rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; color: var(--accent); }
+        .info-badge { border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 8px; padding: 8px 24px; font-size: clamp(0.7rem, 1.5vw, 0.8rem); font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; color: var(--accent); }
         
-        .hero-stats { display: flex; gap: 48px; flex-wrap: wrap; }
-        .stat span { font-family: var(--font-heading); font-size: 3rem; font-weight: 800; color: var(--accent); display: block; margin-bottom: 4px; line-height: 1; }
-        .stat { color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; }
+        .hero-stats { display: flex; gap: clamp(24px, 4vw, 48px); flex-wrap: wrap; }
+        .stat span { font-family: var(--font-heading); font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 800; color: var(--accent); display: block; margin-bottom: 4px; line-height: 1; }
+        .stat { color: var(--text-muted); font-size: clamp(0.7rem, 1.5vw, 0.8rem); font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; }
 
         /* Бегущая строка партнеров */
         .marquee-section { background: #000; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; white-space: nowrap; }
@@ -92,13 +106,13 @@
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* Sections */
-        section { padding: 120px 0; position: relative; border-bottom: 1px solid var(--border); }
-        .section-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
-        .section-sub { color: var(--text-muted); margin-bottom: 64px; font-size: 1.1rem; max-width: 700px; }
+        section { padding: clamp(60px, 10vw, 120px) 0; position: relative; border-bottom: 1px solid var(--border); }
+        .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
+        .section-sub { color: var(--text-muted); margin-bottom: clamp(40px, 6vw, 64px); font-size: clamp(1rem, 2vw, 1.1rem); max-width: 700px; }
         
         /* About Cards */
-        .strict-card { background: var(--surface); padding: 48px; border: 1px solid var(--border); transition: var(--transition); }
-        .strict-card:hover { border-color: var(--border-highlight); background: var(--surface-hover); }
+        .strict-card { background: var(--surface); padding: 48px; border: 1px solid var(--border); transition: var(--transition); border-radius: 4px; }
+        .strict-card:hover { border-color: var(--border-highlight); background: var(--surface-hover); box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: translateY(-4px); }
         .about-list { list-style: none; margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         .about-list li { display: flex; align-items: flex-start; gap: 16px; font-size: 1rem; color: #e2e8f0; }
         .about-list i { color: var(--accent); margin-top: 4px; }
@@ -106,17 +120,17 @@
         /* Table */
         .table-container { position: relative; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         .spec-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); min-width: 600px; }
-        .spec-table th, .spec-table td { padding: 24px; text-align: left; border-bottom: 1px solid var(--border); }
+        .spec-table th, .spec-table td { padding: 24px; text-align: start; border-bottom: 1px solid var(--border); }
         .spec-table th { background: #15181a; font-family: var(--font-heading); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
         .spec-table tbody tr { transition: var(--transition); }
-        .spec-table tbody tr:hover { background-color: var(--surface-hover); border-left: 2px solid var(--accent); }
+        .spec-table tbody tr:hover { background-color: var(--surface-hover); border-inline-start: 2px solid var(--accent); }
         .spec-table td { font-size: 0.95rem; }
         
         /* Map Section */
-        .map-wrapper { position: relative; width: 100%; height: 500px; background: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg') center/contain no-repeat; opacity: 0.8; margin-top: 48px; filter: invert(1) opacity(0.3); }
+        .map-wrapper { position: relative; width: 100%; height: clamp(250px, 50vw, 500px); background: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg') center/contain no-repeat; opacity: 0.8; margin-top: 48px; filter: invert(1) opacity(0.3); }
         .map-pin { position: absolute; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 15px var(--accent); transform: translate(-50%, -50%); cursor: pointer; }
         .map-pin::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--accent); animation: pulse 2s infinite; }
-        .pin-label { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: #000; padding: 4px 12px; font-size: 0.75rem; font-family: var(--font-heading); text-transform: uppercase; border: 1px solid var(--border); white-space: nowrap; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+        .pin-label { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 12px; background: #000; padding: 4px 12px; font-size: 0.75rem; font-family: var(--font-heading); text-transform: uppercase; border: 1px solid var(--border); white-space: nowrap; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
         .map-pin:hover .pin-label { opacity: 1; }
         
         .pin-taman { top: 30%; left: 58%; }
@@ -132,11 +146,11 @@
         .input-group { position: relative; margin-bottom: 32px; }
         .input-group.full { grid-column: span 2; }
         
-        .input-group input, .input-group textarea, .input-group select { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border); color: #fff; padding: 16px 0 8px; font-family: var(--font-body); font-size: 1rem; transition: border-color 0.3s; }
+        .input-group input, .input-group textarea, .input-group select { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border); color: #fff; padding: 16px 0 8px; font-family: var(--font-body); font-size: 1rem; transition: border-color 0.3s; border-radius: 0; }
         .input-group textarea { resize: vertical; min-height: 100px; }
         .input-group input:focus, .input-group textarea:focus, .input-group select:focus { outline: none; border-bottom-color: var(--accent); }
         
-        .input-group label { position: absolute; left: 0; top: 16px; color: var(--text-muted); font-size: 1rem; transition: 0.3s; pointer-events: none; font-family: var(--font-heading); }
+        .input-group label { position: absolute; inset-inline-start: 0; top: 16px; color: var(--text-muted); font-size: 1rem; transition: 0.3s; pointer-events: none; font-family: var(--font-heading); }
         
         .input-group input:focus ~ label, .input-group input:not(:placeholder-shown) ~ label,
         .input-group textarea:focus ~ label, .input-group textarea:not(:placeholder-shown) ~ label,
@@ -145,18 +159,36 @@
         }
 
         .input-group select option { background: var(--surface); color: #fff; }
-        .input-group select { appearance: none; cursor: pointer; }
+        .input-group select { 
+            appearance: none; 
+            cursor: pointer; 
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23FF5A00' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0px center;
+            padding-inline-end: 24px;
+        }
+        [dir="rtl"] .input-group select {
+            background-position: left 0px center;
+        }
 
-        button.submit-btn { background: var(--accent); color: #000; border: none; padding: 18px 48px; font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; justify-content: center; gap: 12px; }
+        button.submit-btn { background: var(--accent); color: #000; border: none; padding: 18px 48px; font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; justify-content: center; gap: 12px; border-radius: 4px; }
         button.submit-btn:hover { background: var(--accent-hover); color: #fff; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 90, 0, 0.2); }
 
+        /* Back to Top & WhatsApp */
+        .fab-container { position: fixed; bottom: 32px; inset-inline-end: 32px; display: flex; flex-direction: column; gap: 16px; z-index: 90; }
+        .fab-btn { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #fff; text-decoration: none; transition: var(--transition); box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: none; cursor: pointer; }
+        .btn-whatsapp { background: #25D366; }
+        .btn-whatsapp:hover { transform: scale(1.1); background: #20ba5a; }
+        .btn-top { background: var(--accent); opacity: 0; pointer-events: none; }
+        .btn-top.visible { opacity: 1; pointer-events: auto; }
+        .btn-top:hover { background: var(--accent-hover); transform: translateY(-4px); }
+
         /* Footer */
-        footer { background: #000; padding: 80px 0 40px; }
-        .footer-flex { display: flex; flex-wrap: wrap; gap: 56px; justify-content: space-between; }
+        footer { background: #000; padding: clamp(40px, 8vw, 80px) 0 clamp(20px, 4vw, 40px); }
+        .footer-flex { display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 56px); justify-content: space-between; }
         .footer-col h3 { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em; }
         .footer-col p, .footer-col a { color: var(--text-muted); text-decoration: none; display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 0.95rem; }
         .footer-col i { color: var(--accent); margin-top: 4px; }
-
 
         /* =========================================
            АДАПТИВНОСТЬ (Медиазапросы)
@@ -164,66 +196,61 @@
 
         /* Планшеты (до 1024px) */
         @media (max-width: 1024px) {
-            .hero-text h2 { font-size: 3rem; }
-            .section-title { font-size: 2.2rem; }
             .about-list { grid-template-columns: 1fr; }
-            .hero-stats { gap: 24px; }
-            .map-wrapper { height: 400px; }
         }
 
         /* Мобильные телефоны и планшеты (вертикально) (до 768px) */
         @media (max-width: 768px) {
             header { padding: 12px 0; }
-            .header-flex { flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center; }
-            .logo-area { flex-direction: column; gap: 8px; }
+            .header-flex { position: relative; }
             .logo-text h1 { font-size: 1rem; }
-            .nav-links { justify-content: center; gap: 16px; width: 100%; }
+            
+            .menu-toggle { display: block; }
+            
+            .nav-links { 
+                position: fixed; top: 60px; inset-inline-start: 0; width: 100%; height: calc(100vh - 60px); background: var(--bg); 
+                flex-direction: column; padding: 40px 24px; border-bottom: 1px solid var(--border);
+                transform: translateY(-100%); opacity: 0; pointer-events: none; transition: var(--transition);
+                z-index: 99; overflow-y: auto; justify-content: flex-start;
+            }
+            .nav-links.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
             .btn-outline { width: 100%; margin-top: 8px; }
 
             .hero { padding: 80px 0 60px; min-height: auto; }
             .hero-content { gap: 40px; justify-content: center; }
             
-            /* Выравниваем Hero-секцию по центру */
             .hero-text { 
-                border-left: none !important; 
-                border-right: none !important; 
+                border-inline-start: none; 
                 border-top: 2px solid var(--accent); 
                 padding: 24px 0 0 0; 
-                text-align: center !important; 
+                text-align: center; 
             }
-            .hero-text h2 { font-size: 2.2rem; margin-bottom: 16px; }
-            .hero-text p { margin: 0 auto 32px; font-size: 1rem; }
-            .info-badge { margin: 0 auto 24px !important; display: inline-flex; }
+            .hero-text p { margin: 0 auto 32px; }
+            .info-badge { margin: 0 auto 24px; display: inline-flex; }
             
-            .hero-stats { flex-direction: row; justify-content: center; gap: 24px; text-align: center !important; }
-            .stat span { font-size: 2.2rem; }
-            .stat { font-size: 0.7rem; }
+            .hero-stats { justify-content: center; gap: 24px; text-align: center; }
 
-            section { padding: 60px 0; }
-            .section-title, .section-sub { text-align: center !important; margin-left: auto; margin-right: auto; }
-            .section-title { font-size: 1.8rem; }
-            .section-sub { font-size: 1rem; margin-bottom: 40px; }
+            .section-title, .section-sub { text-align: center; margin-inline: auto; }
             
             .strict-card { padding: 24px; }
             .spec-table th, .spec-table td { padding: 16px; }
             
-            .map-wrapper { height: 250px; margin-top: 32px; }
-            .pin-label { font-size: 0.6rem; padding: 2px 6px; top: -24px; }
+            .pin-label { font-size: 0.6rem; padding: 2px 6px; }
 
             .form-grid { grid-template-columns: 1fr; gap: 24px; }
             .input-group.full { grid-column: span 1; }
             button.submit-btn { width: 100%; }
 
-            .footer-flex { flex-direction: column; gap: 40px; text-align: center !important; }
+            .footer-flex { flex-direction: column; gap: 40px; text-align: center; }
             .footer-col { align-items: center; }
             .footer-col p, .footer-col a { justify-content: center; }
+            
+            .fab-container { bottom: 20px; inset-inline-end: 20px; }
         }
 
         /* Небольшие смартфоны (до 480px) */
         @media (max-width: 480px) {
-            .hero-text h2 { font-size: 1.8rem; }
             .nav-links a { font-size: 0.75rem; }
-            .stat span { font-size: 1.8rem; }
             .marquee-item { font-size: 1rem; margin: 0 20px; }
             .spec-table th, .spec-table td { padding: 12px; font-size: 0.85rem; }
         }
@@ -233,28 +260,33 @@
 
 <header>
     <div class="container header-flex">
-        <div class="logo-area">
+        <a href="#" class="logo-area">
             <i class="fas fa-gem logo-icon"></i>
             <div class="logo-text">
                 <h1>INDUSTRY AND TECHNOLOGY</h1>
                 <p data-i18n="header_sub">Добыча и экспорт угля | Офис 3613</p>
             </div>
-        </div>
+        </a>
         
         <div class="lang-switch" dir="ltr">
-            <button class="lang-btn active" data-lang="ru">RU</button><span class="lang-separator">|</span>
-            <button class="lang-btn" data-lang="en">EN</button><span class="lang-separator">|</span>
-            <button class="lang-btn" data-lang="zh">ZH</button><span class="lang-separator">|</span>
-            <button class="lang-btn" data-lang="hi">HI</button><span class="lang-separator">|</span>
+            <div class="lang-slider" id="langSlider"></div>
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="zh">ZH</button>
+            <button class="lang-btn" data-lang="hi">HI</button>
             <button class="lang-btn" data-lang="ar">AR</button>
         </div>
         
-        <div class="nav-links">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="nav-links" id="navLinks">
             <a href="#about" data-i18n="nav_about">Компания</a>
             <a href="#coal" data-i18n="nav_coal">Продукция</a>
             <a href="#logistics" data-i18n="nav_logistics">Логистика</a>
             <a href="#contact" class="btn-outline" data-i18n="nav_contact">Связаться</a>
-        </div>
+        </nav>
     </div>
 </header>
 
@@ -298,7 +330,7 @@
                 <div class="info-badge" style="border-color: var(--text-muted); color: var(--text-main);" data-i18n="about_badge">Активы и мощности</div>
                 <h2 class="section-title" data-i18n="about_title">Надёжный экспортёр из Кузбасса</h2>
             </div>
-            <div style="display: flex; flex-wrap: wrap; gap: 48px; margin-top: 48px;">
+            <div style="display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 48px); margin-top: clamp(32px, 5vw, 48px);">
                 <div style="flex: 1.5; min-width: 280px;" class="reveal-text delay-100">
                     <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px;" data-i18n="about_text_1">ООО «Промышленность и технологии» — промышленный холдинг, специализирующийся на добыче и реализации угля. Ключевой актив — угледобывающее предприятие УК «Анжерская-Южная».</p>
                     <p style="color: var(--text-muted); font-size: 1.1rem;" data-i18n="about_text_2">Подтверждённые запасы составляют 116 млн тонн. Текущий объём добычи — 1,5 млн тонн в год. Обеспечиваем полный цикл: от добычи до погрузки на борт судна в порту назначения.</p>
@@ -378,7 +410,7 @@
 
     <section id="contact" style="border-bottom: none; background: #0c0e10;">
         <div class="container">
-            <div style="display: flex; flex-wrap: wrap; gap: 64px;">
+            <div style="display: flex; flex-wrap: wrap; gap: clamp(40px, 8vw, 64px);">
                 <div style="flex: 1; min-width: 280px;" class="reveal-text">
                     <h2 class="section-title" data-i18n="form_title">Запрос котировки</h2>
                     <p data-i18n="form_desc" style="color: var(--text-muted); margin-bottom: 48px;">Заполните форму для получения актуального коммерческого предложения (SCO) в течение рабочего дня.</p>
@@ -387,7 +419,7 @@
                         <h4 style="color: var(--accent); margin-bottom: 8px; font-size: 0.9rem;" data-i18n="export_manager">ДИРЕКТОР ПО ЭКСПОРТУ</h4>
                         <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">Mayya Moreva</p>
                         <p style="color: var(--text-muted); margin-bottom: 4px;">Email: <a href="mailto:CoalMoscow@gmail.com" style="color: #fff; text-decoration: none;">CoalMoscow@gmail.com</a></p>
-                        <p style="color: var(--text-muted);">Tel/WA: <a href="tel:+79651234556" style="color: #fff; text-decoration: none;">+7 (965) 123-45-56</a></p>
+                        <p style="color: var(--text-muted);">Tel/WA: <a href="https://wa.me/79651234556" target="_blank" style="color: #fff; text-decoration: none;">+7 (965) 123-45-56</a></p>
                     </div>
                 </div>
                 
@@ -431,6 +463,15 @@
     </section>
 </main>
 
+<div class="fab-container">
+    <a href="https://wa.me/79651234556" target="_blank" class="fab-btn btn-whatsapp" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <button class="fab-btn btn-top" id="backToTop" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</div>
+
 <footer>
     <div class="container footer-flex">
         <div class="footer-col" style="flex: 1.5; min-width: 250px;">
@@ -440,13 +481,13 @@
         </div>
         <div class="footer-col" style="flex: 1; min-width: 250px;">
             <h3 data-i18n="nav_contact">Контакты</h3>
-            <p><i class="fas fa-envelope"></i> CoalMoscow@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +7 (965) 123-45-56</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:CoalMoscow@gmail.com" style="color: inherit; text-decoration: none;">CoalMoscow@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+79651234556" style="color: inherit; text-decoration: none;">+7 (965) 123-45-56</a></p>
         </div>
         <div class="footer-col" style="flex: 1; min-width: 250px;">
             <h3>Legal</h3>
             <p data-i18n="footer_terms">Incoterms 2020: CIF / FOB Taman.</p>
-            <p style="font-size: 0.8rem; margin-top: 32px; border-top: 1px solid var(--border); padding-top: 16px;">© 2026 LLC INDUSTRY AND TECHNOLOGY.</p>
+            <p style="font-size: 0.8rem; margin-top: 32px; border-top: 1px solid var(--border); padding-top: 16px;">© <span id="currentYear">2026</span> LLC INDUSTRY AND TECHNOLOGY.</p>
         </div>
     </div>
 </footer>
@@ -651,29 +692,19 @@
         });
         localStorage.setItem('coalrus_lang', lang);
         document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
         
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
         const currentBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
-        if (currentBtn) currentBtn.classList.add('active');
-        
-        if(lang === 'ar') {
-            document.body.dir = 'rtl';
-            document.body.style.textAlign = 'right';
-            
-            // На мобильных отключаем AR выравнивание, так как там всё по центру через media-queries
-            if (window.innerWidth > 768) {
-                document.querySelectorAll('.header-flex, .nav-links, .logo-area, .about-list li, .hero-stats').forEach(el => el.style.flexDirection = 'row-reverse');
-                document.querySelectorAll('.spec-table th, .spec-table td').forEach(el => el.style.textAlign = 'right');
-                document.querySelectorAll('.input-group label').forEach(el => { el.style.left = 'auto'; el.style.right = '0'; });
-            }
-        } else {
-            document.body.dir = 'ltr';
-            document.body.style.textAlign = 'left';
-            if (window.innerWidth > 768) {
-                document.querySelectorAll('.header-flex, .nav-links, .logo-area, .about-list li, .hero-stats').forEach(el => el.style.flexDirection = 'row');
-                document.querySelectorAll('.spec-table th, .spec-table td').forEach(el => el.style.textAlign = 'left');
-                document.querySelectorAll('.input-group label').forEach(el => { el.style.left = '0'; el.style.right = 'auto'; });
-            }
+        if (currentBtn) {
+            currentBtn.classList.add('active');
+            setTimeout(() => {
+                const slider = document.getElementById('langSlider');
+                if (slider) {
+                    slider.style.width = `${currentBtn.offsetWidth}px`;
+                    slider.style.transform = `translateX(${currentBtn.offsetLeft}px)`;
+                }
+            }, 50);
         }
     }
 
@@ -683,6 +714,68 @@
 
     const savedLang = localStorage.getItem('coalrus_lang') || 'ru';
     setLanguage(savedLang);
+
+    // Update slider position after full layout
+    window.addEventListener('load', () => {
+        const currentBtn = document.querySelector(`.lang-btn.active`);
+        if (currentBtn) {
+            const slider = document.getElementById('langSlider');
+            if (slider) {
+                slider.style.width = `${currentBtn.offsetWidth}px`;
+                slider.style.transform = `translateX(${currentBtn.offsetLeft}px)`;
+            }
+        }
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    menuToggle?.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = menuToggle.querySelector('i');
+        if(navLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+            document.body.style.overflow = 'hidden';
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Back to Top functionality
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn?.classList.add('visible');
+        } else {
+            backToTopBtn?.classList.remove('visible');
+        }
+    });
+    backToTopBtn?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Set current year dynamically
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 
     // Form logic
     document.getElementById('quickForm')?.addEventListener('submit', function(e) {

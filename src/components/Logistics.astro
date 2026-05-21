@@ -1,0 +1,81 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<section id="logistics">
+    <div class="container">
+        <div class="reveal-text">
+            <h2 class="section-title">{t('logistics_title')}</h2>
+            <p class="section-sub">{t('logistics_sub')}</p>
+        </div>
+        
+        <div class="map-wrapper reveal-scale delay-100">
+            <svg class="world-map" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet">
+                <!-- Using image inside SVG to maintain exact relative pin positioning -->
+                <image href="/images/world-map.svg" width="100%" height="100%" opacity="0.3" filter="invert(1)" />
+                
+                <!-- Pins with relative viewBox coordinates (0-1000 x 0-500) -->
+                <!-- Taman (Approx Russia/Black Sea area) -->
+                <g class="map-pin" transform="translate(580, 150)">
+                    <circle class="pin-core" cx="0" cy="0" r="6" />
+                    <circle class="pin-pulse" cx="0" cy="0" r="6" />
+                    <text class="pin-label" x="0" y="-15">{t('port_name')}</text>
+                </g>
+                <!-- India -->
+                <g class="map-pin" transform="translate(680, 240)">
+                    <circle class="pin-core" cx="0" cy="0" r="6" />
+                    <circle class="pin-pulse" cx="0" cy="0" r="6" />
+                    <text class="pin-label" x="0" y="-15">{t('opt_india')}</text>
+                </g>
+                <!-- China -->
+                <g class="map-pin" transform="translate(780, 200)">
+                    <circle class="pin-core" cx="0" cy="0" r="6" />
+                    <circle class="pin-pulse" cx="0" cy="0" r="6" />
+                    <text class="pin-label" x="0" y="-15">{t('opt_china')}</text>
+                </g>
+                <!-- Vietnam -->
+                <g class="map-pin" transform="translate(780, 260)">
+                    <circle class="pin-core" cx="0" cy="0" r="6" />
+                    <circle class="pin-pulse" cx="0" cy="0" r="6" />
+                    <text class="pin-label" x="0" y="-15">{t('opt_vietnam')}</text>
+                </g>
+                <!-- Africa -->
+                <g class="map-pin" transform="translate(520, 275)">
+                    <circle class="pin-core" cx="0" cy="0" r="6" />
+                    <circle class="pin-pulse" cx="0" cy="0" r="6" />
+                    <text class="pin-label" x="0" y="-15">{t('opt_africa')}</text>
+                </g>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<style>
+    .map-wrapper { position: relative; width: 100%; height: clamp(250px, 50vw, 500px); margin-top: 48px; }
+    .world-map { width: 100%; height: 100%; overflow: visible; }
+    
+    .map-pin { cursor: pointer; }
+    .pin-core { fill: var(--accent); }
+    .pin-pulse { fill: transparent; stroke: var(--accent); stroke-width: 2px; animation: pulse 2s infinite; }
+    
+    .pin-label { 
+        fill: #fff; 
+        font-family: var(--font-heading); 
+        font-size: 12px; 
+        text-anchor: middle; 
+        text-transform: uppercase; 
+        opacity: 0; 
+        transition: opacity 0.3s; 
+        pointer-events: none; 
+        filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.8));
+    }
+    .map-pin:hover .pin-label { opacity: 1; }
+
+    @keyframes pulse { 0% { transform: scale(1); stroke-opacity: 1; } 100% { transform: scale(3); stroke-opacity: 0; } }
+
+    @media (max-width: 768px) {
+        .map-wrapper { margin-top: 32px; }
+        .pin-label { font-size: 10px; }
+    }
+</style>

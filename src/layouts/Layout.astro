@@ -1,0 +1,214 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+// For hreflang
+const pathname = Astro.url.pathname;
+const cleanPath = pathname.replace(`/${lang}/`, '/').replace(/^\/|\/$/g, '');
+---
+
+<!DOCTYPE html>
+<html lang={lang} dir={dir}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:url" content={Astro.url}>
+    <meta property="og:type" content="website">
+    <meta property="og:image" content={new URL("/images/og-image.webp", Astro.site)}>
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content={new URL("/images/og-image.webp", Astro.site)}>
+
+    <link rel="canonical" href={Astro.url}>
+    
+    <!-- Hreflang links -->
+    <link rel="alternate" hreflang="ru" href={new URL(`/${cleanPath}`, Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL(`/en/${cleanPath}`, Astro.site)} />
+    <link rel="alternate" hreflang="zh" href={new URL(`/zh/${cleanPath}`, Astro.site)} />
+    <link rel="alternate" hreflang="hi" href={new URL(`/hi/${cleanPath}`, Astro.site)} />
+    <link rel="alternate" hreflang="ar" href={new URL(`/ar/${cleanPath}`, Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(`/${cleanPath}`, Astro.site)} />
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
+
+    <!-- Fonts preconnect and load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Preload Hero Image -->
+    <!-- <link rel="preload" as="image" href="/images/hero-bg.webp" fetchpriority="high"> -->
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "INDUSTRY AND TECHNOLOGY LLC",
+      "url": "https://coalmoscow.com",
+      "logo": "https://coalmoscow.com/images/og-image.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Presnenskaya emb., 6 bld 2, Empire Tower, office 3613",
+        "addressLocality": "Moscow",
+        "addressCountry": "RU"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+7-965-123-45-56",
+        "contactType": "customer service"
+      }
+    }
+    </script>
+    <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Russian Export Coal",
+      "description": "Coal mining and export from Russia. D, SS, T, Anthracite, K grades. CIF, FOB deliveries.",
+      "brand": {
+        "@type": "Brand",
+        "name": "INDUSTRY AND TECHNOLOGY"
+      }
+    }
+    </script>
+
+    <style is:global>
+        :root {
+            --bg: #111315;
+            --surface: #1A1D20;
+            --surface-hover: #22262a;
+            --accent: #FF5A00;
+            --accent-hover: #e04f00;
+            --text-main: #ffffff;
+            --text-muted: #94A3B8;
+            --border: rgba(255, 255, 255, 0.1);
+            --border-highlight: rgba(255, 255, 255, 0.2);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { overflow-y: scroll; scroll-behavior: smooth; scroll-padding-top: 80px; } 
+        body { font-family: var(--font-body); background: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; text-align: start; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 32px); }
+        
+        h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.2; letter-spacing: -0.01em; }
+        
+        /* Reveal Animations */
+        .reveal-scale { opacity: 0; transform: scale(1.05); transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+        
+        .reveal-text { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); opacity: 0; transform: translateY(20px); transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease, transform 0.8s ease; }
+        .reveal-text.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); opacity: 1; transform: translateY(0); }
+        
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+
+        /* General UI Elements */
+        .btn-outline { border: 1px solid var(--accent); padding: 12px 24px; color: var(--accent) !important; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); text-align: center; border-radius: 4px; text-decoration: none;}
+        .btn-outline:hover { background: var(--accent); color: var(--bg) !important; box-shadow: 0 0 15px rgba(255, 90, 0, 0.3); }
+
+        /* Sections */
+        section { padding: clamp(60px, 10vw, 120px) 0; position: relative; border-bottom: 1px solid var(--border); }
+        .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; text-align: center; margin-inline: auto; }
+        .section-sub { color: var(--text-muted); margin-bottom: clamp(40px, 6vw, 64px); font-size: clamp(1rem, 2vw, 1.1rem); max-width: 700px; text-align: center; margin-inline: auto; }
+
+        .svg-icon { fill: currentColor; width: 1em; height: 1em; display: inline-block; vertical-align: middle; }
+    </style>
+</head>
+<body>
+    <slot />
+
+    <div class="fab-container">
+        <a href="https://wa.me/79651234556" target="_blank" class="fab-btn btn-whatsapp" aria-label="WhatsApp">
+            <svg class="svg-icon" viewBox="0 0 24 24" style="width: 1.5em; height: 1.5em;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        </a>
+        <button class="fab-btn btn-top" id="backToTop" aria-label="Back to Top">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 4l-8 8h6v8h4v-8h6z"/></svg>
+        </button>
+    </div>
+
+    <script>
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    if(entry.target.classList.contains('hero-text')) {
+                        document.querySelectorAll('.counter-value').forEach(el => {
+                            if(!el.classList.contains('counted')) {
+                                animateValue(el, 0, parseFloat(el.getAttribute('data-target') || '0'), 1500);
+                                el.classList.add('counted');
+                            }
+                        });
+                    }
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-text, .reveal-scale').forEach(el => observer.observe(el));
+
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                let current = progress * (end - start) + start;
+                
+                if(end % 1 !== 0) obj.innerHTML = current.toFixed(1);
+                else obj.innerHTML = Math.floor(current);
+
+                if (progress < 1) window.requestAnimationFrame(step);
+                else obj.innerHTML = end;
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn?.classList.add('visible');
+            } else {
+                backToTopBtn?.classList.remove('visible');
+            }
+        });
+        backToTopBtn?.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+    <style>
+        .fab-container { position: fixed; bottom: 32px; inset-inline-end: 32px; display: flex; flex-direction: column; gap: 16px; z-index: 90; }
+        .fab-btn { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #fff; text-decoration: none; transition: var(--transition); box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: none; cursor: pointer; }
+        .btn-whatsapp { background: #25D366; }
+        .btn-whatsapp:hover { transform: scale(1.1); background: #20ba5a; }
+        .btn-top { background: var(--accent); opacity: 0; pointer-events: none; fill: white; }
+        .btn-top.visible { opacity: 1; pointer-events: auto; }
+        .btn-top:hover { background: var(--accent-hover); transform: translateY(-4px); }
+
+        @media (max-width: 768px) {
+            .fab-container { bottom: 20px; inset-inline-end: 20px; }
+        }
+    </style>
+</body>
+</html>
