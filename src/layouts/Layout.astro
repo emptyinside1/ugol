@@ -122,15 +122,20 @@ const cleanPath = pathname.replace(`/${lang}/`, '/').replace(/^\/|\/$/g, '');
         .delay-200 { transition-delay: 200ms; }
 
         /* General UI Elements */
+        .info-badge { border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 8px; padding: 8px 24px; font-size: clamp(0.7rem, 1.5vw, 0.8rem); font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; color: var(--accent); border-radius: 4px; }
         .btn-outline { border: 1px solid var(--accent); padding: 12px 24px; color: var(--accent) !important; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); text-align: center; border-radius: 4px; text-decoration: none;}
         .btn-outline:hover { background: var(--accent); color: var(--bg) !important; box-shadow: 0 0 15px rgba(255, 90, 0, 0.3); }
 
         /* Sections */
         section { padding: clamp(40px, 8vw, 120px) 0; position: relative; border-bottom: 1px solid var(--border); }
-        .section-title { font-size: clamp(1.8rem, 6vw, 2.5rem); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; text-align: center; margin-inline: auto; }
+        .section-title { font-size: clamp(1.5rem, 5vw, 2.5rem); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; text-align: center; margin-inline: auto; }
         .section-sub { color: var(--text-muted); margin-bottom: clamp(40px, 6vw, 64px); font-size: clamp(1rem, 2vw, 1.1rem); max-width: 700px; text-align: center; margin-inline: auto; }
 
         .svg-icon { fill: currentColor; width: 1em; height: 1em; display: inline-block; vertical-align: middle; }
+
+        @media (max-width: 768px) {
+            .info-badge { margin: 0 auto 24px; display: inline-flex; }
+        }
     </style>
 </head>
 <body>
