@@ -60,7 +60,7 @@
         .logo-text p { font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.05em;}
         
         /* Lang Switcher */
-        .lang-switch { display: flex; gap: 4px; align-items: center; justify-content: center; position: relative; background: rgba(255, 255, 255, 0.05); padding: 4px; border-radius: 20px; border: 1px solid var(--border); }
+        .lang-switch { display: flex; gap: 4px; align-items: center; justify-content: center; position: relative; background: rgba(255, 255, 255, 0.05); padding: 4px; border-radius: 20px; border: 1px solid var(--border); margin-inline-start: 16px; }
         .lang-btn { position: relative; z-index: 2; background: transparent; border: none; color: var(--text-muted); font-family: var(--font-heading); font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: color 0.3s; letter-spacing: 0.05em; padding: 6px 12px; border-radius: 16px; }
         .lang-btn:hover { color: #fff; }
         .lang-btn.active { color: #000; }
@@ -88,13 +88,13 @@
         
         .hero-content { position: relative; z-index: 2; width: 100%; display: flex; flex-wrap: wrap; gap: 64px; align-items: center; }
         .hero-text { flex: 1.2; min-width: 320px; border-inline-start: 2px solid var(--accent); padding-inline-start: 32px; }
-        .hero-text h2 { font-size: 4rem; font-weight: 800; margin-bottom: 24px; text-transform: uppercase; line-height: 1.1; }
+        .hero-text h2 { font-size: clamp(1.8rem, 4vw + 1rem, 4rem); font-weight: 800; margin-bottom: 24px; text-transform: uppercase; line-height: 1.1; }
         .hero-text p { font-size: 1.1rem; margin-bottom: 48px; max-width: 600px; color: #cbd5e1; }
         
         .info-badge { border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 8px; padding: 8px 24px; font-size: 0.8rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; color: var(--accent); }
         
         .hero-stats { display: flex; gap: 48px; flex-wrap: wrap; }
-        .stat span { font-family: var(--font-heading); font-size: 3rem; font-weight: 800; color: var(--accent); display: block; margin-bottom: 4px; line-height: 1; }
+        .stat span { font-family: var(--font-heading); font-size: clamp(1.8rem, 5vw + 1rem, 3rem); font-weight: 800; color: var(--accent); display: block; margin-bottom: 4px; line-height: 1; }
         .stat { color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.05em; }
 
         /* Бегущая строка партнеров */
@@ -107,7 +107,7 @@
 
         /* Sections */
         section { padding: 120px 0; position: relative; border-bottom: 1px solid var(--border); }
-        .section-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
+        .section-title { font-size: clamp(1.8rem, 4vw + 1rem, 2.5rem); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
         .section-sub { color: var(--text-muted); margin-bottom: 64px; font-size: 1.1rem; max-width: 700px; }
         
         /* About Cards */
@@ -127,7 +127,7 @@
         .spec-table td { font-size: 0.95rem; }
         
         /* Map Section */
-        .map-wrapper { position: relative; width: 100%; height: 500px; background: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg') center/contain no-repeat; opacity: 0.8; margin-top: 48px; filter: invert(1) opacity(0.3); }
+        .map-wrapper { position: relative; width: 100%; aspect-ratio: 1.97 / 1; height: auto; background: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg') center/100% 100% no-repeat; opacity: 0.8; margin-top: 48px; filter: invert(1) opacity(0.3); }
         .map-pin { position: absolute; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 15px var(--accent); transform: translate(-50%, -50%); cursor: pointer; }
         .map-pin::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--accent); animation: pulse 2s infinite; }
         .pin-label { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 12px; background: #000; padding: 4px 12px; font-size: 0.75rem; font-family: var(--font-heading); text-transform: uppercase; border: 1px solid var(--border); white-space: nowrap; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
@@ -146,7 +146,7 @@
         .input-group { position: relative; margin-bottom: 32px; }
         .input-group.full { grid-column: span 2; }
         
-        .input-group input, .input-group textarea, .input-group select { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border); color: #fff; padding: 16px 0 8px; font-family: var(--font-body); font-size: 1rem; transition: border-color 0.3s; border-radius: 0; }
+        .input-group input, .input-group textarea, .input-group select { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border); color: #fff; padding: 16px 0 8px; font-family: var(--font-body); font-size: 16px; transition: border-color 0.3s; border-radius: 0; }
         .input-group textarea { resize: vertical; min-height: 100px; }
         .input-group input:focus, .input-group textarea:focus, .input-group select:focus { outline: none; border-bottom-color: var(--accent); }
         
@@ -196,11 +196,8 @@
 
         /* Планшеты (до 1024px) */
         @media (max-width: 1024px) {
-            .hero-text h2 { font-size: 3rem; }
-            .section-title { font-size: 2.2rem; }
             .about-list { grid-template-columns: 1fr; }
             .hero-stats { gap: 24px; }
-            .map-wrapper { height: 400px; }
         }
 
         /* Мобильные телефоны и планшеты (вертикально) (до 768px) */
@@ -219,6 +216,7 @@
             }
             .nav-links.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
             .btn-outline { width: 100%; margin-top: 8px; }
+            .lang-switch { margin-inline-start: 0; margin-top: 16px; width: 100%; justify-content: center; }
 
             .hero { padding: 80px 0 60px; min-height: auto; }
             .hero-content { gap: 40px; justify-content: center; }
@@ -229,23 +227,21 @@
                 padding: 24px 0 0 0; 
                 text-align: center; 
             }
-            .hero-text h2 { font-size: 2.2rem; margin-bottom: 16px; }
+            .hero-text h2 { margin-bottom: 16px; }
             .hero-text p { margin: 0 auto 32px; font-size: 1rem; }
             .info-badge { margin: 0 auto 24px; display: inline-flex; }
             
             .hero-stats { justify-content: center; gap: 24px; text-align: center; }
-            .stat span { font-size: 2.2rem; }
             .stat { font-size: 0.7rem; }
 
             section { padding: 60px 0; }
             .section-title, .section-sub { text-align: center; margin-inline: auto; }
-            .section-title { font-size: 1.8rem; }
             .section-sub { font-size: 1rem; margin-bottom: 40px; }
             
             .strict-card { padding: 24px; }
             .spec-table th, .spec-table td { padding: 16px; }
             
-            .map-wrapper { height: 250px; margin-top: 32px; }
+            .map-wrapper { margin-top: 32px; }
             .pin-label { font-size: 0.6rem; padding: 2px 6px; }
 
             .form-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -261,9 +257,7 @@
 
         /* Небольшие смартфоны (до 480px) */
         @media (max-width: 480px) {
-            .hero-text h2 { font-size: 1.8rem; }
             .nav-links a { font-size: 0.75rem; }
-            .stat span { font-size: 1.8rem; }
             .marquee-item { font-size: 1rem; margin: 0 20px; }
             .spec-table th, .spec-table td { padding: 12px; font-size: 0.85rem; }
         }
@@ -281,15 +275,6 @@
             </div>
         </a>
         
-        <div class="lang-switch" dir="ltr">
-            <div class="lang-slider" id="langSlider"></div>
-            <button class="lang-btn active" data-lang="ru">RU</button>
-            <button class="lang-btn" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="zh">ZH</button>
-            <button class="lang-btn" data-lang="hi">HI</button>
-            <button class="lang-btn" data-lang="ar">AR</button>
-        </div>
-        
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
             <i class="fas fa-bars"></i>
         </button>
@@ -299,6 +284,14 @@
             <a href="#coal" data-i18n="nav_coal">Продукция</a>
             <a href="#logistics" data-i18n="nav_logistics">Логистика</a>
             <a href="#contact" class="btn-outline" data-i18n="nav_contact">Связаться</a>
+            <div class="lang-switch" dir="ltr">
+                <div class="lang-slider" id="langSlider"></div>
+                <button class="lang-btn active" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="zh">ZH</button>
+                <button class="lang-btn" data-lang="hi">HI</button>
+                <button class="lang-btn" data-lang="ar">AR</button>
+            </div>
         </nav>
     </div>
 </header>
