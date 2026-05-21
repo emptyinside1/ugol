@@ -8,10 +8,10 @@ const t = useTranslations(lang);
         <div class="footer-col" style="flex: 1.5; min-width: 250px;">
             <h3 style="color: var(--accent);">INDUSTRY AND TECHNOLOGY</h3>
             <p style="color: #fff;">{t('footer_about')}</p>
-            <p style="font-size: 0.85rem; margin-top: 16px;">
-                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 
-                <span>{t('footer_address')}</span>
-            </p>
+            <div style="font-size: 0.85rem; margin-top: 16px; color: var(--text-muted); display: flex; gap: 12px; align-items: flex-start;">
+                <svg class="svg-icon" viewBox="0 0 24 24" style="color: var(--accent); flex-shrink: 0; margin-top: 4px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 
+                <span set:html={t('footer_address')}></span>
+            </div>
         </div>
         <div class="footer-col" style="flex: 1; min-width: 250px;">
             <h3>{t('nav_contact')}</h3>
@@ -49,6 +49,6 @@ const t = useTranslations(lang);
     @media (max-width: 768px) {
         .footer-flex { flex-direction: column; gap: 40px; text-align: center; }
         .footer-col { align-items: center; }
-        .footer-col p, .footer-col a { justify-content: center; }
+        .footer-col p, .footer-col a, .footer-col > div { justify-content: center; }
     }
 </style>

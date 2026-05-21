@@ -28,10 +28,10 @@ const cleanPath = pathname.replace(`/${lang}/`, '/').replace(/^\/|\/$/g, '');
     <meta property="og:description" content={description}>
     <meta property="og:url" content={Astro.url}>
     <meta property="og:type" content="website">
-    <meta property="og:image" content={new URL(`${import.meta.env.BASE_URL}images/og-image.webp`, Astro.site)}>
+    <meta property="og:image" content={new URL(`${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}/images/og-image.webp`, Astro.site)}>
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content={new URL(`${import.meta.env.BASE_URL}images/og-image.webp`, Astro.site)}>
+    <meta name="twitter:image" content={new URL(`${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}/images/og-image.webp`, Astro.site)}>
 
     <link rel="canonical" href={Astro.url}>
     
@@ -61,7 +61,7 @@ const cleanPath = pathname.replace(`/${lang}/`, '/').replace(/^\/|\/$/g, '');
       "@type": "Organization",
       "name": "INDUSTRY AND TECHNOLOGY LLC",
       "url": "https://coalmoscow.com",
-      "logo": "https://coalmoscow.com${import.meta.env.BASE_URL}images/og-image.webp",
+      "logo": "https://coalmoscow.com${import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL}/images/og-image.webp",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Presnenskaya emb., 6 bld 2, Empire Tower, office 3613",
@@ -126,8 +126,8 @@ const cleanPath = pathname.replace(`/${lang}/`, '/').replace(/^\/|\/$/g, '');
         .btn-outline:hover { background: var(--accent); color: var(--bg) !important; box-shadow: 0 0 15px rgba(255, 90, 0, 0.3); }
 
         /* Sections */
-        section { padding: clamp(60px, 10vw, 120px) 0; position: relative; border-bottom: 1px solid var(--border); }
-        .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; text-align: center; margin-inline: auto; }
+        section { padding: clamp(40px, 8vw, 120px) 0; position: relative; border-bottom: 1px solid var(--border); }
+        .section-title { font-size: clamp(1.8rem, 6vw, 2.5rem); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; text-align: center; margin-inline: auto; }
         .section-sub { color: var(--text-muted); margin-bottom: clamp(40px, 6vw, 64px); font-size: clamp(1rem, 2vw, 1.1rem); max-width: 700px; text-align: center; margin-inline: auto; }
 
         .svg-icon { fill: currentColor; width: 1em; height: 1em; display: inline-block; vertical-align: middle; }
