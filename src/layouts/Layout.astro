@@ -28,10 +28,10 @@ const cleanPath = pathname.replace(`/${lang}/`, '/').replace(/^\/|\/$/g, '');
     <meta property="og:description" content={description}>
     <meta property="og:url" content={Astro.url}>
     <meta property="og:type" content="website">
-    <meta property="og:image" content={new URL("/images/og-image.webp", Astro.site)}>
+    <meta property="og:image" content={new URL(`${import.meta.env.BASE_URL}images/og-image.webp`, Astro.site)}>
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content={new URL("/images/og-image.webp", Astro.site)}>
+    <meta name="twitter:image" content={new URL(`${import.meta.env.BASE_URL}images/og-image.webp`, Astro.site)}>
 
     <link rel="canonical" href={Astro.url}>
     
@@ -52,16 +52,16 @@ const cleanPath = pathname.replace(`/${lang}/`, '/').replace(/^\/|\/$/g, '');
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Preload Hero Image -->
-    <!-- <link rel="preload" as="image" href="/images/hero-bg.webp" fetchpriority="high"> -->
+    <!-- <link rel="preload" as="image" href={`${import.meta.env.BASE_URL}images/hero-bg.webp`} fetchpriority="high"> -->
 
     <!-- JSON-LD Schema -->
-    <script type="application/ld+json" is:inline>
+    <script type="application/ld+json" is:inline set:html={`
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "INDUSTRY AND TECHNOLOGY LLC",
       "url": "https://coalmoscow.com",
-      "logo": "https://coalmoscow.com/images/og-image.webp",
+      "logo": "https://coalmoscow.com${import.meta.env.BASE_URL}images/og-image.webp",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Presnenskaya emb., 6 bld 2, Empire Tower, office 3613",
@@ -74,7 +74,7 @@ const cleanPath = pathname.replace(`/${lang}/`, '/').replace(/^\/|\/$/g, '');
         "contactType": "customer service"
       }
     }
-    </script>
+    `}></script>
     <script type="application/ld+json" is:inline>
     {
       "@context": "https://schema.org",

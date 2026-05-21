@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://coalmoscow.com',
+  site: 'https://emptyinside1.github.io',
+  base: '/ugol',
   devToolbar: {
     enabled: false
   },

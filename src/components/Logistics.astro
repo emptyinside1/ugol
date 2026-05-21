@@ -13,7 +13,7 @@ const t = useTranslations(lang);
         <div class="map-wrapper reveal-scale delay-100">
             <svg class="world-map" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet">
                 <!-- Using image inside SVG to maintain exact relative pin positioning -->
-                <image href="/images/world-map.svg" width="100%" height="100%" opacity="0.3" filter="invert(1)" />
+                <image href={`${import.meta.env.BASE_URL}images/world-map.svg`} width="100%" height="100%" opacity="0.3" filter="invert(1)" />
                 
                 <!-- Pins with relative viewBox coordinates (0-1000 x 0-500) -->
                 <!-- Taman (Approx Russia/Black Sea area) -->
