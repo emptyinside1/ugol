@@ -40,7 +40,7 @@ function getUrlForLang(l: string) {
         <div class="lang-switch" dir="ltr">
             <div class="lang-slider" id="langSlider"></div>
             {langs.map((l) => (
-                <a href={l === 'ru' ? `/${cleanPath}` : `/${l}/${cleanPath}`} class={`lang-btn ${lang === l ? 'active' : ''}`} data-lang={l}>{l.toUpperCase()}</a>
+                <a href={getUrlForLang(l)} class={`lang-btn ${lang === l ? 'active' : ''}`} data-lang={l}>{l.toUpperCase()}</a>
             ))}
         </div>
         
@@ -52,7 +52,7 @@ function getUrlForLang(l: string) {
         <nav class="nav-links" id="navLinks">
             <div class="lang-switch mobile-only" dir="ltr">
                 {langs.map((l) => (
-                    <a href={l === 'ru' ? `/${cleanPath}` : `/${l}/${cleanPath}`} class={`lang-btn ${lang === l ? 'active' : ''}`} data-lang={l}>{l.toUpperCase()}</a>
+                    <a href={getUrlForLang(l)} class={`lang-btn ${lang === l ? 'active' : ''}`} data-lang={l}>{l.toUpperCase()}</a>
                 ))}
             </div>
             <a href="#about">{t('nav_about')}</a>
