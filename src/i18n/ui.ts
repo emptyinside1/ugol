@@ -154,11 +154,18 @@ export const ui = {
 export function getLangFromUrl(url: URL) {
   const base = import.meta.env.BASE_URL;
   let path = url.pathname;
+  
+  // Remove base from path if it exists
   if (base !== '/' && path.startsWith(base)) {
     path = path.slice(base.length);
-  } else if (base === '/' && path.startsWith('/')) {
-    path = path.slice(1);
+  } else if (base !== '/' && path === base.slice(0, -1)) {
+    // Edge case: path is exactly '/ugol' without trailing slash
+    path = '';
   }
+  
+  // Clean up leading/trailing slashes
+  path = path.replace(/^\/|\/$/g, '');
+  
   const [lang] = path.split('/');
   if (lang in ui) return lang as keyof typeof ui;
   return defaultLang;
