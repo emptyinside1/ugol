@@ -23,7 +23,9 @@ function getUrlForLang(l: string) {
     const langPrefix = l === 'ru' ? '' : l;
     const finalSegments = [langPrefix, cleanPath].filter(Boolean);
     const finalPath = finalSegments.join('/');
-    return `${base === '/' ? '/' : base}${finalPath}`;
+    const slash = base.endsWith('/') ? '' : '/';
+    const trailingSlash = finalPath && !finalPath.endsWith('/') ? '/' : '';
+    return `${base === '/' ? '/' : base + slash}${finalPath}${trailingSlash}`;
 }
 ---
 <header>
