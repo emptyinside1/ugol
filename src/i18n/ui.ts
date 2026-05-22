@@ -10,7 +10,7 @@ export const defaultLang = 'ru';
 
 export const ui = {
   ru: {
-    header_sub: "Добыча и экспорт угля | Офис 3613",
+    header_sub: "Добыча и экспорт угля | Офис 3631",
     nav_about: "Компания", nav_coal: "Продукция", nav_logistics: "Логистика", nav_contact: "Связаться",
     hero_badge: "FOB / CIF Порт Тамань",
     hero_title: "Добыча и экспорт угля из России",
@@ -22,7 +22,7 @@ export const ui = {
     about_text_2: "Подтверждённые запасы составляют 116 млн тонн. Текущий объём добычи — 1,5 млн тонн в год. Обеспечиваем полный цикл: от добычи до погрузки в порту назначения.",
     about_li1: "Сертификаты качества ГОСТ/ISO", about_li2: "Лабораторный контроль SGS/Incolab",
     about_li3: "Таможенное оформление", about_li4: "Квоты РЖД и договоры со стивидором",
-    requisites_title: "Данные экспортера", requisites_address: "Юр. адрес: Москва, Пресненская наб., д. 6, стр. 2, Башня Империя, офис 3613",
+    requisites_title: "Данные экспортера", requisites_address: "Юр. адрес: Москва, Пресненская наб., д. 6, стр. 2, Башня Империя, офис 3631",
     coal_title: "Спецификация угля", coal_sub: "Предоставляем сертификаты качества на каждую партию. Строгий контроль фракции и калорийности.",
     table_grade: "Марка", table_size: "Фракция", table_calorific: "NCV (ккал/кг)", table_app: "Применение",
     opt_d: "Д (Длиннопламенный)", opt_ss: "СС (Слабоспекающийся)", opt_t: "Т (Тощий)", opt_a_large: "Антрацит (А)", opt_k: "К (Коксующийся)",
@@ -34,11 +34,11 @@ export const ui = {
     form_title: "Запрос котировки", form_desc: "Заполните форму для получения актуального коммерческого предложения (SCO) в течение рабочего дня.",
     form_button: "Отправить запрос",
     form_company_ph: "Компания / Контактное лицо", form_email_ph: "Email", form_phone_ph: "Телефон", form_message_ph: "Требования к партии (объем, базис)", opt_coal_sel: "Марка угля",
-    footer_about: "Добыча и экспорт угля из России", footer_address: "Москва, Башня Империя, офис 3613<br>Кемеровская обл., Шахта Анжерская-Южная", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
+    footer_about: "Добыча и экспорт угля из России", footer_address: "Москва, Башня Империя, офис 3631<br>Кемеровская обл., Шахта Анжерская-Южная", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
     form_err_req: "Заполните обязательные поля", form_success: "Запрос отправлен. Мы свяжемся с вами."
   },
   en: {
-    header_sub: "Coal Mining & Export | Office 3613",
+    header_sub: "Coal Mining & Export | Office 3631",
     nav_about: "Company", nav_coal: "Products", nav_logistics: "Logistics", nav_contact: "Contact",
     hero_badge: "FOB / CIF Port Taman",
     hero_title: "Coal Mining & Export from Russia",
@@ -46,11 +46,11 @@ export const ui = {
     stat_volume_label: "mln t per year", stat_markets_label: "export markets", stat_term_label: "delivery terms",
     export_manager: "EXPORT DIRECTOR",
     about_badge: "Assets & Capacity", about_title: "Reliable Exporter from Kuzbass",
-    about_text_1: "INDUSTRY AND TECHNOLOGY LLC is an industrial holding specializing in coal mining and sales. Key asset: MC Anzherskaya-Yuzhnaya.",
+    about_text_1: "MC Anzherskaya-Yuzhnaya LLC is a coal mining enterprise specializing in coal extraction and sales. We provide a full cycle from mining to loading at the destination port.",
     about_text_2: "Proven reserves: 116 million tons. Current production: 1.5 million tons/year. We provide a full cycle from mining to loading at the destination port.",
     about_li1: "GOST/ISO quality certificates", about_li2: "SGS/Incolab lab control",
     about_li3: "Full customs clearance", about_li4: "Rail quotas & stevedore contracts",
-    requisites_title: "Exporter Details", requisites_address: "Legal: Moscow, Presnenskaya emb., 6 bld 2, Empire Tower, office 3613",
+    requisites_title: "Exporter Details", requisites_address: "Legal: Moscow, Presnenskaya emb., 6 bld 2, Empire Tower, office 3631",
     coal_title: "Coal Specification", coal_sub: "Quality certificates provided for each batch. Strict control of fraction and calorific value.",
     table_grade: "Grade", table_size: "Fraction", table_calorific: "NCV (kcal/kg)", table_app: "Application",
     opt_d: "D (Long-flame)", opt_ss: "SS (Weakly caking)", opt_t: "T (Lean)", opt_a_large: "Anthracite (A)", opt_k: "K (Coking)",
@@ -62,11 +62,11 @@ export const ui = {
     form_title: "Request a Quote", form_desc: "Fill out the form to receive a Soft Corporate Offer (SCO) within one business day.",
     form_button: "Send Request",
     form_company_ph: "Company / Contact Person", form_email_ph: "Email", form_phone_ph: "Phone", form_message_ph: "Batch requirements (volume, basis)", opt_coal_sel: "Coal Grade",
-    footer_about: "Coal mining and export from Russia", footer_address: "Moscow, Empire Tower, office 3613<br>Kemerovo region, Anzherskaya-Yuzhnaya Mine", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
+    footer_about: "Coal mining and export from Russia", footer_address: "Moscow, Empire Tower, office 3631<br>Kemerovo region, Anzherskaya-Yuzhnaya Mine", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
     form_err_req: "Fill required fields", form_success: "Request sent. We will contact you."
   },
   zh: {
-    header_sub: "煤炭开采与出口 | 办公室 3613",
+    header_sub: "煤炭开采与出口 | 办公室 3631",
     nav_about: "公司", nav_coal: "产品", nav_logistics: "物流", nav_contact: "联系",
     hero_badge: "FOB / CIF 塔曼港",
     hero_title: "俄罗斯煤炭开采与出口",
@@ -78,7 +78,7 @@ export const ui = {
     about_text_2: "探明储量：1.16亿吨。当前产量：150万吨/年。提供从开采到装船的全周期服务。",
     about_li1: "GOST/ISO 质量认证", about_li2: "SGS/Incolab 实验室控制",
     about_li3: "全面清关服务", about_li4: "铁路配额与码头合同",
-    requisites_title: "出口商详情", requisites_address: "法定：莫斯科, 帝国大厦, 3613室",
+    requisites_title: "出口商详情", requisites_address: "法定：莫斯科, 帝国大厦, 3631室",
     coal_title: "煤炭规格", coal_sub: "每批提供质量证书。严格控制粒度和热值。",
     table_grade: "等级", table_size: "粒度", table_calorific: "低位发热量 (kcal/kg)", table_app: "应用",
     opt_d: "D (长焰煤)", opt_ss: "SS (弱粘结煤)", opt_t: "T (瘦煤)", opt_a_large: "无烟煤 (A)", opt_k: "K (炼焦煤)",
@@ -90,11 +90,11 @@ export const ui = {
     form_title: "请求报价", form_desc: "填写表格以在一个工作日内收到软企业报价 (SCO)。",
     form_button: "发送请求",
     form_company_ph: "公司 / 联系人", form_email_ph: "电子邮件", form_phone_ph: "电话", form_message_ph: "批次要求 (数量, 条款)", opt_coal_sel: "煤炭等级",
-    footer_about: "俄罗斯煤炭开采与出口", footer_address: "莫斯科, 帝国大厦, 3613室<br>克麦罗沃地区, Anzherskaya-Yuzhnaya 矿", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
+    footer_about: "俄罗斯煤炭开采与出口", footer_address: "莫斯科, 帝国大厦, 3631室<br>克麦罗沃地区, Anzherskaya-Yuzhnaya 矿", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
     form_err_req: "请填写必填项", form_success: "请求已发送。我们将与您联系。"
   },
   hi: {
-    header_sub: "कोयला खनन और निर्यात | कार्यालय 3613",
+    header_sub: "कोयला खनन और निर्यात | कार्यालय 3631",
     nav_about: "कंपनी", nav_coal: "उत्पाद", nav_logistics: "लॉजिस्टिक्स", nav_contact: "संपर्क करें",
     hero_badge: "FOB / CIF तमान बंदरगाह",
     hero_title: "रूस से कोयला खनन और निर्यात",
@@ -106,7 +106,7 @@ export const ui = {
     about_text_2: "सिद्ध भंडार: 116 मिलियन टन। वर्तमान उत्पादन: 1.5 मिलियन टन/वर्ष। खनन से लोडिंग तक पूर्ण चक्र।",
     about_li1: "GOST/ISO गुणवत्ता प्रमाण पत्र", about_li2: "SGS/Incolab प्रयोगशाला नियंत्रण",
     about_li3: "पूर्ण सीमा शुल्क निकासी", about_li4: "रेल कोटा और स्टीवडोर अनुबंध",
-    requisites_title: "निर्यातक विवरण", requisites_address: "कानूनी: मॉस्को, एम्पायर टॉवर, कार्यालय 3613",
+    requisites_title: "निर्यातक विवरण", requisites_address: "कानूनी: मॉस्को, एम्पायर टॉवर, कार्यालय 3631",
     coal_title: "कोयला विशिष्टता", coal_sub: "प्रत्येक बैच के लिए गुणवत्ता प्रमाण पत्र। अंश और कैलोरी मान का सख्त नियंत्रण।",
     table_grade: "ग्रेड", table_size: "अंश", table_calorific: "NCV (kcal/kg)", table_app: "उपयोग",
     opt_d: "D (लॉन्ग-फ्लेम)", opt_ss: "SS (वीकली केकिंग)", opt_t: "T (लीन)", opt_a_large: "एन्थ्रेसाइट (A)", opt_k: "K (कोकिंग)",
@@ -118,11 +118,11 @@ export const ui = {
     form_title: "उद्धरण का अनुरोध करें", form_desc: "एक व्यावसायिक दिन के भीतर SCO प्राप्त करने के लिए फॉर्म भरें।",
     form_button: "अनुरोध भेजें",
     form_company_ph: "कंपनी / संपर्क व्यक्ति", form_email_ph: "ईमेल", form_phone_ph: "फ़ोन", form_message_ph: "बैच आवश्यकताएं (मात्रा, शर्तें)", opt_coal_sel: "कोयला ग्रेड",
-    footer_about: "रूस से कोयला खनन और निर्यात", footer_address: "मॉस्को, एम्पायर टॉवर, कार्यालय 3613", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
+    footer_about: "रूस से कोयला खनन और निर्यात", footer_address: "मॉस्को, एम्पायर टॉवर, कार्यालय 3631", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
     form_err_req: "आवश्यक फ़ील्ड भरें", form_success: "अनुरोध भेजा गया। हम आपसे संपर्क करेंगे。"
   },
   ar: {
-    header_sub: "تعدين وتصدير الفحم | مكتب 3613",
+    header_sub: "تعدين وتصدير الفحم | مكتب 3631",
     nav_about: "الشركة", nav_coal: "المنتجات", nav_logistics: "اللوجستيات", nav_contact: "اتصل بنا",
     hero_badge: "FOB / CIF ميناء تامان",
     hero_title: "تعدين وتصدير الفحم من روسيا",
@@ -134,7 +134,7 @@ export const ui = {
     about_text_2: "الاحتياطيات المؤكدة: 116 مليون طن. الإنتاج الحالي: 1.5 مليون طن / سنة. دورة كاملة من التعدين إلى التحميل.",
     about_li1: "شهادات الجودة GOST/ISO", about_li2: "مراقبة مختبر SGS/Incolab",
     about_li3: "تخليص جمركي كامل", about_li4: "حصص السكك الحديدية وعقود التحميل",
-    requisites_title: "تفاصيل المصدر", requisites_address: "القانوني: موسكو، برج الإمبراطورية، مكتب 3613",
+    requisites_title: "تفاصيل المصدر", requisites_address: "القانوني: موسكو، برج الإمبراطورية، مكتب 3631",
     coal_title: "مواصفات الفحم", coal_sub: "شهادات الجودة لكل دفعة. رقابة صارمة على الحجم والقيمة الحرارية.",
     table_grade: "الدرجة", table_size: "الحجم", table_calorific: "القيمة الحرارية (kcal/kg)", table_app: "التطبيق",
     opt_d: "D (طويل اللهب)", opt_ss: "SS (ضعيف التكتل)", opt_t: "T (نحيف)", opt_a_large: "أنثراسايت (A)", opt_k: "K (كوك)",
@@ -146,7 +146,7 @@ export const ui = {
     form_title: "طلب عرض سعر", form_desc: "املأ النموذج لاستلام عرض (SCO) خلال يوم عمل واحد.",
     form_button: "إرسال الطلب",
     form_company_ph: "الشركة / الشخص المسؤول", form_email_ph: "البريد الإلكتروني", form_phone_ph: "الهاتف", form_message_ph: "متطلبات الدفعة (الحجم، الأساس)", opt_coal_sel: "درجة الفحم",
-    footer_about: "تعدين وتصدير الفحم من روسيا", footer_address: "موسكو، برج الإمبراطورية، مكتب 3613", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
+    footer_about: "تعدين وتصدير الفحم من روسيا", footer_address: "موسكو، برج الإمبراطورية، مكتب 3631", footer_terms: "Incoterms 2020: CIF / FOB Taman.",
     form_err_req: "املأ الحقول المطلوبة", form_success: "تم إرسال الطلب. سنتصل بك."
   }
 };
