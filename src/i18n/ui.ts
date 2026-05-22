@@ -152,7 +152,14 @@ export const ui = {
 };
 
 export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
+  const base = import.meta.env.BASE_URL;
+  let path = url.pathname;
+  if (base !== '/' && path.startsWith(base)) {
+    path = path.slice(base.length);
+  } else if (base === '/' && path.startsWith('/')) {
+    path = path.slice(1);
+  }
+  const [lang] = path.split('/');
   if (lang in ui) return lang as keyof typeof ui;
   return defaultLang;
 }

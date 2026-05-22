@@ -20,10 +20,14 @@ if (pathSegments.length > 0 && langs.includes(pathSegments[0])) {
 const cleanPath = pathSegments.join('/');
 
 function getUrlForLang(l: string) {
-    const langPrefix = l === 'ru' ? '' : l;
-    const finalSegments = [langPrefix, cleanPath].filter(Boolean);
-    const finalPath = finalSegments.join('/');
-    return `${base === '/' ? '/' : base}${finalPath}`;
+    let b = base;
+    if (!b.endsWith('/')) b += '/';
+    
+    if (l === 'ru') {
+        return b;
+    } else {
+        return `${b}${l}/`;
+    }
 }
 ---
 <header>
